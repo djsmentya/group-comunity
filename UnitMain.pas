@@ -14,6 +14,7 @@ type
     N3: TMenuItem;
     ToolBar: TToolBar;
     view: TMenuItem;
+    mniN4: TMenuItem;
   private
     { Private declarations }
   public
