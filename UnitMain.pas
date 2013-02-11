@@ -12,8 +12,8 @@ type
     N1: TMenuItem;
     N2: TMenuItem;
     N3: TMenuItem;
-    view: TMenuItem;
     ToolBar: TToolBar;
+    view: TMenuItem;
   private
     { Private declarations }
   public
@@ -24,6 +24,9 @@ var
   FormMain: TFormMain;
 
 implementation
+
+uses
+  UnitDataModule;
 
 {$R *.dfm}
 
