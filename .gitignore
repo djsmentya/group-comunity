@@ -1,2 +1,5 @@
 database
 *.dpp
+*.exe
+*.dcu
+*.ddp

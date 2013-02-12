@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ToolWin, ComCtrls, Menus;
+  Dialogs, ToolWin, ComCtrls, Menus, ExtCtrls;
 
 type
   TFormMain = class(TForm)
@@ -15,6 +15,7 @@ type
     ToolBar: TToolBar;
     view: TMenuItem;
     mniN4: TMenuItem;
+    Panel: TPanel;
   private
     { Private declarations }
   public

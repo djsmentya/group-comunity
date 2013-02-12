@@ -23,6 +23,14 @@ object FormMain: TFormMain
     Caption = 'ToolBar'
     TabOrder = 0
   end
+  object Panel: TPanel
+    Left = 0
+    Top = 29
+    Width = 912
+    Height = 393
+    Align = alClient
+    TabOrder = 1
+  end
   object MainMenu: TMainMenu
     Left = 872
     Top = 392
