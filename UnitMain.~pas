@@ -31,7 +31,7 @@ var
 implementation
 
 uses
-  UnitDataModule, Unit1, Unit1doska;
+  UnitDataModule, Unit1;
 
 {$R *.dfm}
 

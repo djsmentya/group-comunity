@@ -1,0 +1,54 @@
+unit Unit1doska;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TFormAdvert = class(TForm)
+    Memo1: TMemo;
+    Button1: TButton;
+    Edit1: TEdit;
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormAdvert: TFormAdvert;
+
+implementation
+
+uses UnitMain, UnitDataModule;
+
+{$R *.dfm}
+
+procedure TFormAdvert.FormCreate(Sender: TObject);
+begin
+parent:=formmain.panel;
+end;
+
+procedure TFormAdvert.Button1Click(Sender: TObject);
+begin
+ if (Memo1.Text='')
+then showmessage ('¬ведите данные')
+else
+with dm.ZAdvert do
+      begin
+      Append;
+      FieldByName('Name').AsString := Edit1.Text;
+      FieldByName('Text').AsString := Memo1.Text;
+      post;
+      Refresh;
+end;
+edit1.Clear;
+Memo1.Clear;
+
+end;
+
+end.
