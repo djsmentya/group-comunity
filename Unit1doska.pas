@@ -10,15 +10,15 @@ type
   TFormAdvert = class(TForm)
     Label1: TLabel;
     DBNavigator1: TDBNavigator;
-    DBText1: TDBText;
     DBMemo1: TDBMemo;
     DataSource1: TDataSource;
     DataSource2: TDataSource;
-    DBText2: TDBText;
     DBMemo2: TDBMemo;
     DBNavigator2: TDBNavigator;
     Label2: TLabel;
     Button1: TButton;
+    DBText1: TDBText;
+    DBText2: TDBText;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
   private
@@ -43,7 +43,7 @@ end;
 
 procedure TFormAdvert.Button1Click(Sender: TObject);
 begin
-FormEvent.Show;
+FormEvent.Showmodal;
 
 end;
 

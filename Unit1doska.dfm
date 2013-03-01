@@ -23,28 +23,28 @@ object FormAdvert: TFormAdvert
     Height = 13
     Caption = #1054#1073#1098#1103#1074#1083#1077#1085#1080#1103
   end
-  object DBText1: TDBText
-    Left = 32
-    Top = 48
-    Width = 105
-    Height = 17
-    DataField = 'Name'
-    DataSource = DataSource1
-  end
-  object DBText2: TDBText
-    Left = 512
-    Top = 48
-    Width = 65
-    Height = 17
-    DataField = 'Name'
-    DataSource = DataSource2
-  end
   object Label2: TLabel
     Left = 576
     Top = 16
     Width = 44
     Height = 13
     Caption = #1057#1086#1073#1099#1090#1080#1103
+  end
+  object DBText1: TDBText
+    Left = 32
+    Top = 48
+    Width = 65
+    Height = 17
+    DataField = 'Name'
+    DataSource = DataSource1
+  end
+  object DBText2: TDBText
+    Left = 520
+    Top = 40
+    Width = 65
+    Height = 17
+    DataField = 'Name'
+    DataSource = DataSource2
   end
   object DBNavigator1: TDBNavigator
     Left = 56
@@ -74,7 +74,7 @@ object FormAdvert: TFormAdvert
     TabOrder = 2
   end
   object DBNavigator2: TDBNavigator
-    Left = 528
+    Left = 544
     Top = 296
     Width = 222
     Height = 25
@@ -83,8 +83,8 @@ object FormAdvert: TFormAdvert
     TabOrder = 3
   end
   object Button1: TButton
-    Left = 368
-    Top = 384
+    Left = 344
+    Top = 336
     Width = 121
     Height = 25
     Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1089#1086#1073#1099#1090#1080#1103
@@ -98,7 +98,7 @@ object FormAdvert: TFormAdvert
   end
   object DataSource2: TDataSource
     DataSet = DM.ZEvent
-    Left = 352
+    Left = 488
     Top = 8
   end
 end

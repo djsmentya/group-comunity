@@ -5,7 +5,7 @@ uses
   UnitMain in 'UnitMain.pas' {FormMain},
   UnitDataModule in 'UnitDataModule.pas' {DM: TDataModule},
   Unit1doska in 'Unit1doska.pas' {FormAdvert},
-  UnitEvent in 'UnitEvent.pas' {FormEvent};
+  Unit1 in 'Unit1.pas' {FormEvent};
 
 {$R *.res}
 
