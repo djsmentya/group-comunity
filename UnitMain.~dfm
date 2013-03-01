@@ -56,7 +56,6 @@ object FormMain: TFormMain
     object view: TMenuItem
       Caption = #1042#1080#1076
       object tray_start: TMenuItem
-        Caption = #1057#1074#1077#1088#1085#1091#1090#1100' '#1074' '#1090#1088#1101#1081
         OnClick = tray_startClick
       end
     end

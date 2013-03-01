@@ -16,9 +16,6 @@ type
     view: TMenuItem;
     mniN4: TMenuItem;
     Panel: TPanel;
-    tray_start: TMenuItem;
-    ToolButton1: TToolButton;
-    procedure tray_startClick(Sender: TObject);
     procedure N2Click(Sender: TObject);
   private
     { Private declarations }
@@ -35,11 +32,6 @@ uses
   UnitDataModule, Tray_7;
 
 {$R *.dfm}
-
-procedure TFormMain.tray_startClick(Sender: TObject);
-begin
-//Tray.show;
-end;
 
 procedure TFormMain.N2Click(Sender: TObject);
 begin

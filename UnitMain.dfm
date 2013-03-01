@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 382
-  Top = 269
+  Left = 392
+  Top = 148
   Width = 928
   Height = 480
   Caption = 'FormMain'
@@ -18,22 +18,16 @@ object FormMain: TFormMain
   object ToolBar: TToolBar
     Left = 0
     Top = 0
-    Width = 920
+    Width = 912
     Height = 29
     Caption = 'ToolBar'
     TabOrder = 0
-    object ToolButton1: TToolButton
-      Left = 0
-      Top = 2
-      Caption = #1057#1074#1077#1088#1085#1091#1090#1100' '#1074' '#1090#1088#1101#1081
-      MenuItem = tray_start
-    end
   end
   object Panel: TPanel
     Left = 0
     Top = 29
-    Width = 920
-    Height = 400
+    Width = 912
+    Height = 393
     Align = alClient
     TabOrder = 1
   end
@@ -55,9 +49,6 @@ object FormMain: TFormMain
     end
     object view: TMenuItem
       Caption = #1042#1080#1076
-      object tray_start: TMenuItem
-        OnClick = tray_startClick
-      end
     end
   end
 end

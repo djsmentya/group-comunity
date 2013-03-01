@@ -38,7 +38,7 @@ uses
 
 procedure TFormMain.tray_startClick(Sender: TObject);
 begin
-Tray.show;
+//Tray.show;
 end;
 
 procedure TFormMain.N2Click(Sender: TObject);
