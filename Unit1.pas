@@ -154,8 +154,7 @@ end;
 
 procedure TFormEvent.Button7Click(Sender: TObject);
 begin
-FormAdvert.Showmodal;
-FormEvent.Visible:=false;
+close;
 end;
 
 end.

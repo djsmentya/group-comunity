@@ -64,7 +64,7 @@ var
 
 implementation
 
-uses UnitDataModule;
+uses UnitDataModule, Unit1doska;
 
 {$R *.dfm}
 
@@ -154,7 +154,8 @@ end;
 
 procedure TFormEvent.Button7Click(Sender: TObject);
 begin
-FormEvent.Showmodal;
+FormAdvert.Showmodal;
+FormEvent.Visible:=false;
 end;
 
 end.

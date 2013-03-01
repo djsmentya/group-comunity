@@ -18,8 +18,9 @@ type
     Panel: TPanel;
     doska: TMenuItem;
     ToolButton1: TToolButton;
-    procedure doskaClick(Sender: TObject);
+
     procedure N2Click(Sender: TObject);
+    procedure doskaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -33,20 +34,19 @@ var
 implementation
 
 uses
-<<<<<<< HEAD
-  UnitDataModule, Tray_7;
-  UnitDataModule, Unit1, Unit1doska;
+
+  UnitDataModule, Tray_7, Unit1, Unit1doska;
 
 {$R *.dfm}
 
 procedure TFormMain.N2Click(Sender: TObject);
 begin
 close;
+end;
 
 procedure TFormMain.doskaClick(Sender: TObject);
 begin
 FormAdvert.Show;
->>>>>>> refs/remotes/origin/Epur
 end;
 
 end.

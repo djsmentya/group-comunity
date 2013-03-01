@@ -18,11 +18,8 @@ type
     Panel: TPanel;
     doska: TMenuItem;
     ToolButton1: TToolButton;
-    tray_start: TMenuItem;
-    ToolButton1: TToolButton;
-    procedure tray_startClick(Sender: TObject);
+
     procedure N2Click(Sender: TObject);
-    procedure doskaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -36,24 +33,14 @@ var
 implementation
 
 uses
-<<<<<<< HEAD
-  UnitDataModule, Tray_7;
-  UnitDataModule, Unit1;
-{$R *.dfm}
 
-procedure TFormMain.tray_startClick(Sender: TObject);
-begin
-//Tray.show;
-end;
+  UnitDataModule, Tray_7, Unit1, Unit1doska;
+
+{$R *.dfm}
 
 procedure TFormMain.N2Click(Sender: TObject);
 begin
 close;
 
-procedure TFormMain.doskaClick(Sender: TObject);
-begin
-FormAdvert.Show;
-
-end;
 
 end.

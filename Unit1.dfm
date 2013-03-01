@@ -1,6 +1,6 @@
 object FormEvent: TFormEvent
-  Left = 270
-  Top = 214
+  Left = 252
+  Top = 143
   Width = 928
   Height = 480
   Caption = 'FormEvent'

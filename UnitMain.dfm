@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 392
-  Top = 148
+  Left = 252
+  Top = 143
   Width = 928
   Height = 480
   Caption = 'FormMain'
@@ -18,7 +18,7 @@ object FormMain: TFormMain
   object ToolBar: TToolBar
     Left = 0
     Top = 0
-    Width = 920
+    Width = 912
     Height = 29
     Caption = 'ToolBar'
     TabOrder = 0
@@ -32,8 +32,8 @@ object FormMain: TFormMain
   object Panel: TPanel
     Left = 0
     Top = 29
-    Width = 920
-    Height = 397
+    Width = 912
+    Height = 393
     Align = alClient
     TabOrder = 1
   end
