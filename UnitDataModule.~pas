@@ -11,7 +11,6 @@ type
     conDB: TZConnection;
     ztblUser: TZTable;
     ZAdvert: TZTable;
-    ZEvent: TZTable;
   private
     { Private declarations }
   public

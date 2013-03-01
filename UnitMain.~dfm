@@ -25,15 +25,15 @@ object FormMain: TFormMain
     object ToolButton1: TToolButton
       Left = 0
       Top = 2
-      Caption = #1057#1074#1077#1088#1085#1091#1090#1100' '#1074' '#1090#1088#1101#1081
-      MenuItem = tray_start
+      Caption = #1044#1086#1089#1082#1072' '#1086#1073#1098#1103#1074#1083#1077#1085#1080#1081
+      MenuItem = doska
     end
   end
   object Panel: TPanel
     Left = 0
     Top = 29
     Width = 920
-    Height = 400
+    Height = 397
     Align = alClient
     TabOrder = 1
   end
@@ -44,7 +44,6 @@ object FormMain: TFormMain
       Caption = #1060#1072#1081#1083
       object N2: TMenuItem
         Caption = #1042#1099#1093#1086#1076
-        OnClick = N2Click
       end
     end
     object N3: TMenuItem
@@ -55,8 +54,9 @@ object FormMain: TFormMain
     end
     object view: TMenuItem
       Caption = #1042#1080#1076
-      object tray_start: TMenuItem
-        OnClick = tray_startClick
+      object doska: TMenuItem
+        Caption = #1044#1086#1089#1082#1072' '#1086#1073#1098#1103#1074#1083#1077#1085#1080#1081
+        OnClick = doskaClick
       end
     end
   end

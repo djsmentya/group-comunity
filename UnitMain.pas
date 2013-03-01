@@ -16,7 +16,11 @@ type
     view: TMenuItem;
     mniN4: TMenuItem;
     Panel: TPanel;
+    doska: TMenuItem;
+    ToolButton1: TToolButton;
+    procedure doskaClick(Sender: TObject);
     procedure N2Click(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -29,13 +33,20 @@ var
 implementation
 
 uses
+<<<<<<< HEAD
   UnitDataModule, Tray_7;
+  UnitDataModule, Unit1, Unit1doska;
 
 {$R *.dfm}
 
 procedure TFormMain.N2Click(Sender: TObject);
 begin
 close;
+
+procedure TFormMain.doskaClick(Sender: TObject);
+begin
+FormAdvert.Show;
+>>>>>>> refs/remotes/origin/Epur
 end;
 
 end.
