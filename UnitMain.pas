@@ -18,10 +18,11 @@ type
     Panel: TPanel;
     doska: TMenuItem;
     ToolBtnAdvert: TToolButton;
-
+ 	zachetka: TMenuItem;
+	btnZachetka: TToolButton;
     procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
-
+    procedure zachetkaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,7 +36,8 @@ implementation
 
 uses
 
-  UnitDataModule, Tray_7, UnitEv, Unit1doska;
+  UnitDataModule, Tray_7, UnitEv, Unit1doska,
+  UnitZachetka;
 
 {$R *.dfm}
 
@@ -47,6 +49,11 @@ end;
 procedure TFormMain.doskaClick(Sender: TObject);
 begin
 FormAdvert.Show;
+end;
+
+procedure TFormMain.zachetkaClick(Sender: TObject);
+begin
+FormZachetka.show;
 end;
 
 end.

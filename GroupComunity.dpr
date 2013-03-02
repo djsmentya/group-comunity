@@ -6,7 +6,9 @@ uses
   UnitDataModule in 'UnitDataModule.pas' {DM: TDataModule},
   Tray_7 in 'Tray_7.pas' {Tray},
   Unit1doska in 'Unit1doska.pas' {FormAdvert},
-  UnitEv in 'UnitEv.pas' {FormEvent};
+  UnitEv in 'UnitEv.pas' {FormEvent},
+  UnitZachetka in 'UnitZachetka.pas' {FormZachetka},
+  Unit1 in 'Unit1.pas' {DataModule1: TDataModule};
 
 {$R *.res}
 
@@ -17,5 +19,7 @@ begin
   Application.CreateForm(TTray, Tray);
   Application.CreateForm(TFormAdvert, FormAdvert);
   Application.CreateForm(TFormEvent, FormEvent);
+  Application.CreateForm(TFormZachetka, FormZachetka);
+  Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.
