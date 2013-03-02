@@ -12,6 +12,7 @@ type
     ztblUser: TZTable;
     ZAdvert: TZTable;
     ZEvent: TZTable;
+    ZTPref: TZTable;
   private
     { Private declarations }
   public

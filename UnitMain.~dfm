@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 541
-  Top = 163
+  Left = 238
+  Top = 228
   Width = 928
   Height = 480
   Caption = 'FormMain'
@@ -22,11 +22,17 @@ object FormMain: TFormMain
     Height = 29
     Caption = 'ToolBar'
     TabOrder = 0
-    object ToolButton1: TToolButton
+    object ToolBtnAdvert: TToolButton
       Left = 0
       Top = 2
       Caption = #1044#1086#1089#1082#1072' '#1086#1073#1098#1103#1074#1083#1077#1085#1080#1081
       MenuItem = doska
+    end
+    object ToolBtnChat: TToolButton
+      Left = 23
+      Top = 2
+      Caption = #1063#1072#1090
+      MenuItem = chat
     end
   end
   object Panel: TPanel
@@ -51,12 +57,18 @@ object FormMain: TFormMain
       Caption = #1055#1088#1072#1074#1082#1072
       object mniN4: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
+        OnClick = mniN4Click
       end
     end
     object view: TMenuItem
       Caption = #1042#1080#1076
       object doska: TMenuItem
         Caption = #1044#1086#1089#1082#1072' '#1086#1073#1098#1103#1074#1083#1077#1085#1080#1081
+        OnClick = doskaClick
+      end
+      object chat: TMenuItem
+        Caption = #1063#1072#1090
+        OnClick = chatClick
       end
     end
   end

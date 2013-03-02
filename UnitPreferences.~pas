@@ -1,0 +1,34 @@
+unit UnitPreferences;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, StdCtrls, Buttons, ExtCtrls;
+
+type
+  TFormPref = class(TForm)
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    EditServerAddress: TEdit;
+    EditServerPort: TEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    Panel1: TPanel;
+    BitBtn1: TBitBtn;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormPref: TFormPref;
+
+implementation
+
+{$R *.dfm}
+
+end.

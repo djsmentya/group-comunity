@@ -17,10 +17,14 @@ type
     mniN4: TMenuItem;
     Panel: TPanel;
     doska: TMenuItem;
-    ToolButton1: TToolButton;
+    ToolBtnAdvert: TToolButton;
+    chat: TMenuItem;
+    ToolBtnChat: TToolButton;
 
     procedure N2Click(Sender: TObject);
     procedure doskaClick(Sender: TObject);
+    procedure chatClick(Sender: TObject);
+    procedure mniN4Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -35,7 +39,8 @@ implementation
 
 uses
 
-  UnitDataModule, Tray_7, Unit1, Unit1doska;
+  UnitDataModule, Tray_7, Unit1, Unit1doska, uLkJSON, UnitChat,
+  UnitPreferences, UnitServerModule;
 
 {$R *.dfm}
 
@@ -47,6 +52,17 @@ end;
 procedure TFormMain.doskaClick(Sender: TObject);
 begin
 FormAdvert.Show;
+
+end;
+
+procedure TFormMain.chatClick(Sender: TObject);
+begin
+FormChat.show;
+end;
+
+procedure TFormMain.mniN4Click(Sender: TObject);
+begin
+FormPref.ShowModal;
 end;
 
 end.

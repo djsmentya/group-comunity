@@ -2,8 +2,8 @@ object DM: TDM
   OldCreateOrder = False
   Left = 618
   Top = 129
-  Height = 149
-  Width = 215
+  Height = 191
+  Width = 246
   object conDB: TZConnection
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
@@ -27,14 +27,21 @@ object DM: TDM
     Connection = conDB
     Active = True
     TableName = 'advertisements'
-    Left = 56
-    Top = 16
+    Left = 88
+    Top = 8
   end
   object ZEvent: TZTable
     Connection = conDB
     Active = True
     TableName = 'events'
-    Left = 16
-    Top = 64
+    Left = 48
+    Top = 8
+  end
+  object ZTPref: TZTable
+    Connection = conDB
+    Active = True
+    TableName = 'preferences'
+    Left = 176
+    Top = 8
   end
 end

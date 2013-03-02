@@ -7,7 +7,8 @@ object DM: TDM
   object conDB: TZConnection
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
-    AutoEncodeStrings = False
+    Properties.Strings = (
+      'AutoEncodeStrings=ON')
     Connected = True
     Port = 0
     Database = 'database'
@@ -17,6 +18,7 @@ object DM: TDM
   end
   object ztblUser: TZTable
     Connection = conDB
+    Active = True
     TableName = 'users'
     Left = 128
     Top = 8

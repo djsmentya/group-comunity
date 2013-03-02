@@ -1,0 +1,46 @@
+unit UnitChat;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, ScktComp;
+
+type
+  TFormChat = class(TForm)
+    Memo1: TMemo;
+    ListBox1: TListBox;
+    Panel1: TPanel;
+    Memo2: TMemo;
+    Panel2: TPanel;
+    Button1: TButton;
+    procedure FormCreate(Sender: TObject);
+    procedure ClientSocketConnect(Sender: TObject;
+      Socket: TCustomWinSocket);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormChat: TFormChat;
+
+implementation
+
+uses UnitMain;
+
+{$R *.dfm}
+
+procedure TFormChat.FormCreate(Sender: TObject);
+begin
+parent := FormMain.Panel;
+end;
+
+procedure TFormChat.ClientSocketConnect(Sender: TObject;
+  Socket: TCustomWinSocket);
+begin
+Memo1.Lines.add('Соединение установлено');
+end;
+
+end.
