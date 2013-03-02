@@ -9,17 +9,17 @@ uses
 type
   TFormMain = class(TForm)
     MainMenu: TMainMenu;
-    N1: TMenuItem;
-    N2: TMenuItem;
-    N3: TMenuItem;
+    fileMenu: TMenuItem;
+    exitMenu: TMenuItem;
+    edit: TMenuItem;
     ToolBar: TToolBar;
     view: TMenuItem;
-    mniN4: TMenuItem;
+    pref: TMenuItem;
     Panel: TPanel;
     doska: TMenuItem;
-    ToolButton1: TToolButton;
+    ToolBtnAdvert: TToolButton;
 
-    procedure N2Click(Sender: TObject);
+    procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
 
   private
@@ -35,11 +35,11 @@ implementation
 
 uses
 
-  UnitDataModule, Tray_7, Unit1, Unit1doska;
+  UnitDataModule, Tray_7, UnitEv, Unit1doska;
 
 {$R *.dfm}
 
-procedure TFormMain.N2Click(Sender: TObject);
+procedure TFormMain.exitMenuClick(Sender: TObject);
 begin
 close;
 end;

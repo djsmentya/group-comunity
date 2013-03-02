@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 252
-  Top = 143
+  Left = 288
+  Top = 170
   Width = 928
   Height = 480
   Caption = 'FormMain'
@@ -22,7 +22,7 @@ object FormMain: TFormMain
     Height = 29
     Caption = 'ToolBar'
     TabOrder = 0
-    object ToolButton1: TToolButton
+    object ToolBtnAdvert: TToolButton
       Left = 0
       Top = 2
       Caption = #1044#1086#1089#1082#1072' '#1086#1073#1098#1103#1074#1083#1077#1085#1080#1081
@@ -40,16 +40,16 @@ object FormMain: TFormMain
   object MainMenu: TMainMenu
     Left = 872
     Top = 392
-    object N1: TMenuItem
+    object fileMenu: TMenuItem
       Caption = #1060#1072#1081#1083
-      object N2: TMenuItem
+      object exitMenu: TMenuItem
         Caption = #1042#1099#1093#1086#1076
-        OnClick = N2Click
+        OnClick = exitMenuClick
       end
     end
-    object N3: TMenuItem
+    object edit: TMenuItem
       Caption = #1055#1088#1072#1074#1082#1072
-      object mniN4: TMenuItem
+      object pref: TMenuItem
         Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
       end
     end

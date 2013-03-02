@@ -1,6 +1,6 @@
 object FormAdvert: TFormAdvert
-  Left = 234
-  Top = 132
+  Left = 366
+  Top = 186
   Align = alClient
   BorderStyle = bsNone
   Caption = #1054#1073#1098#1103#1074#1083#1077#1085#1080#1103

@@ -17,9 +17,10 @@ type
     mniN4: TMenuItem;
     Panel: TPanel;
     doska: TMenuItem;
-    ToolButton1: TToolButton;
+    ToolBtnAdvert: TToolButton;
 
     procedure N2Click(Sender: TObject);
+    procedure doskaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -34,13 +35,18 @@ implementation
 
 uses
 
-  UnitDataModule, Tray_7, Unit1, Unit1doska;
+  UnitDataModule, Tray_7, UnitEv, Unit1doska;
 
 {$R *.dfm}
 
 procedure TFormMain.N2Click(Sender: TObject);
 begin
 close;
+end;
 
+procedure TFormMain.doskaClick(Sender: TObject);
+begin
+FormAdvert.Show;
+end;
 
 end.

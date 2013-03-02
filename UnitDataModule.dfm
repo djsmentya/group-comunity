@@ -28,7 +28,7 @@ object DM: TDM
     Active = True
     TableName = 'advertisements'
     Left = 56
-    Top = 16
+    Top = 8
   end
   object ZEvent: TZTable
     Connection = conDB
