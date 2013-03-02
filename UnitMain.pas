@@ -16,6 +16,9 @@ type
     view: TMenuItem;
     mniN4: TMenuItem;
     Panel: TPanel;
+    zachetka: TMenuItem;
+    btnZachetka: TToolButton;
+    procedure zachetkaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,8 +31,13 @@ var
 implementation
 
 uses
-  UnitDataModule;
+  UnitDataModule, UnitZachetka;
 
 {$R *.dfm}
+
+procedure TFormMain.zachetkaClick(Sender: TObject);
+begin
+FormZachetka.show;
+end;
 
 end.
