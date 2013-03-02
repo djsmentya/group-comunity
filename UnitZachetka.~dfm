@@ -118,7 +118,6 @@ object FormZachetka: TFormZachetka
         Height = 17
         DataField = 'role'
         DataSource = dsQueryUser
-        Visible = False
       end
       object Label11: TLabel
         Left = 16
@@ -170,6 +169,15 @@ object FormZachetka: TFormZachetka
           '2 '#1082#1091#1088#1089
           '3 '#1082#1091#1088#1089
           '4 '#1082#1091#1088#1089)
+      end
+      object DBEdit2: TDBEdit
+        Left = 312
+        Top = 8
+        Width = 121
+        Height = 21
+        DataField = 'role'
+        DataSource = DM.dsUser
+        TabOrder = 3
       end
     end
     object ts2: TTabSheet

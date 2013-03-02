@@ -9,19 +9,20 @@ uses
 type
   TFormMain = class(TForm)
     MainMenu: TMainMenu;
-    N1: TMenuItem;
-    N2: TMenuItem;
-    N3: TMenuItem;
+    fileMenu: TMenuItem;
+    exitMenu: TMenuItem;
+    edit: TMenuItem;
     ToolBar: TToolBar;
     view: TMenuItem;
-    mniN4: TMenuItem;
+    pref: TMenuItem;
     Panel: TPanel;
     doska: TMenuItem;
     ToolBtnAdvert: TToolButton;
-
-    procedure N2Click(Sender: TObject);
+ 	zachetka: TMenuItem;
+	btnZachetka: TToolButton;
+    procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
-
+    procedure zachetkaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,11 +36,12 @@ implementation
 
 uses
 
-  UnitDataModule, Tray_7, UnitEv, Unit1doska;
+  UnitDataModule, Tray_7, UnitEv, Unit1doska,
+  UnitZachetka;
 
 {$R *.dfm}
 
-procedure TFormMain.N2Click(Sender: TObject);
+procedure TFormMain.exitMenuClick(Sender: TObject);
 begin
 close;
 end;
@@ -47,6 +49,11 @@ end;
 procedure TFormMain.doskaClick(Sender: TObject);
 begin
 FormAdvert.Show;
+end;
+
+procedure TFormMain.zachetkaClick(Sender: TObject);
+begin
+FormZachetka.show;
 end;
 
 end.

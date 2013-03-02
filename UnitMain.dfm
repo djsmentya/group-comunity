@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 203
-  Top = 146
+  Left = 340
+  Top = 168
   Width = 928
   Height = 480
   Caption = 'FormMain'
@@ -18,7 +18,7 @@ object FormMain: TFormMain
   object ToolBar: TToolBar
     Left = 0
     Top = 0
-    Width = 920
+    Width = 912
     Height = 29
     ButtonWidth = 33
     Caption = 'ToolBar'
@@ -30,7 +30,7 @@ object FormMain: TFormMain
       MenuItem = doska
     end
     object btnZachetka: TToolButton
-      Left = 0
+      Left = 33
       Top = 2
       Caption = #1047#1072#1095#1105#1090#1082#1072
       MenuItem = zachetka
@@ -39,8 +39,8 @@ object FormMain: TFormMain
   object Panel: TPanel
     Left = 0
     Top = 29
-    Width = 920
-    Height = 397
+    Width = 912
+    Height = 393
     Align = alClient
     TabOrder = 1
   end

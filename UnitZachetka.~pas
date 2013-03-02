@@ -56,6 +56,7 @@ type
     Button1: TButton;
     dbtxt5: TDBText;
     Label11: TLabel;
+    DBEdit2: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure ComboBox1Select(Sender: TObject);
     procedure FormShow(Sender: TObject);
