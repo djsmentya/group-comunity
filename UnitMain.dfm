@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 200
-  Top = 229
+  Left = 216
+  Top = 215
   Width = 928
   Height = 480
   Caption = 'FormMain'
@@ -18,7 +18,7 @@ object FormMain: TFormMain
   object ToolBar: TToolBar
     Left = 0
     Top = 0
-    Width = 920
+    Width = 912
     Height = 29
     ButtonWidth = 33
     Caption = 'ToolBar'
@@ -41,12 +41,18 @@ object FormMain: TFormMain
       Caption = #1055#1088#1086#1092#1080#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
       MenuItem = profile
     end
+    object ToolBChat: TToolButton
+      Left = 99
+      Top = 2
+      Caption = #1063#1072#1090
+      MenuItem = chat
+    end
   end
   object Panel: TPanel
     Left = 0
     Top = 29
-    Width = 920
-    Height = 397
+    Width = 912
+    Height = 393
     Align = alClient
     TabOrder = 1
   end
@@ -83,6 +89,10 @@ object FormMain: TFormMain
       object profile: TMenuItem
         Caption = #1055#1088#1086#1092#1080#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
         OnClick = profileClick
+      end
+      object chat: TMenuItem
+        Caption = #1063#1072#1090
+        OnClick = chatClick
       end
     end
   end
