@@ -1,7 +1,7 @@
 object DM: TDM
   OldCreateOrder = False
-  Left = 850
-  Top = 203
+  Left = 676
+  Top = 140
   Height = 287
   Width = 338
   object conDB: TZConnection
