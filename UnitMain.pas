@@ -20,9 +20,14 @@ type
     ToolBtnAdvert: TToolButton;
  	zachetka: TMenuItem;
 	btnZachetka: TToolButton;
+    N1: TMenuItem;
+    profile: TMenuItem;
+    btnProfile: TToolButton;
     procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
     procedure zachetkaClick(Sender: TObject);
+    procedure profileClick(Sender: TObject);
+    procedure N1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,7 +42,7 @@ implementation
 uses
 
   UnitDataModule, Tray_7, UnitEv, Unit1doska,
-  UnitZachetka;
+  UnitZachetka, UnitProfile, UnitEdit;
 
 {$R *.dfm}
 
@@ -54,6 +59,17 @@ end;
 procedure TFormMain.zachetkaClick(Sender: TObject);
 begin
 FormZachetka.show;
+end;
+
+procedure TFormMain.profileClick(Sender: TObject);
+begin
+FormProfile.show;
+end;
+
+procedure TFormMain.N1Click(Sender: TObject);
+begin
+FormEdit.ShowModal;
+
 end;
 
 end.

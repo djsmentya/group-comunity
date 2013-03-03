@@ -8,7 +8,9 @@ uses
   Unit1doska in 'Unit1doska.pas' {FormAdvert},
   UnitEv in 'UnitEv.pas' {FormEvent},
   UnitZachetka in 'UnitZachetka.pas' {FormZachetka},
-  Unit1 in 'Unit1.pas' {DataModule1: TDataModule};
+  Unit1 in 'Unit1.pas' {DataModule1: TDataModule},
+  UnitProfile in 'UnitProfile.pas' {FormProfile},
+  UnitEdit in 'UnitEdit.pas' {FormEdit};
 
 {$R *.res}
 
@@ -21,5 +23,7 @@ begin
   Application.CreateForm(TFormEvent, FormEvent);
   Application.CreateForm(TFormZachetka, FormZachetka);
   Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TFormProfile, FormProfile);
+  Application.CreateForm(TFormEdit, FormEdit);
   Application.Run;
 end.

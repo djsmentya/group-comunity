@@ -1,10 +1,10 @@
 object FormZachetka: TFormZachetka
-  Left = 396
-  Top = 223
+  Left = 253
+  Top = 206
   Align = alClient
   BorderStyle = bsNone
   Caption = #1047#1072#1095#1105#1090#1082#1072
-  ClientHeight = 345
+  ClientHeight = 526
   ClientWidth = 761
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
