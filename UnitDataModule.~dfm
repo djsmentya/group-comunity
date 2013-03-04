@@ -1,7 +1,7 @@
 object DM: TDM
   OldCreateOrder = False
-  Left = 335
-  Top = 133
+  Left = 676
+  Top = 140
   Height = 287
   Width = 338
   object conDB: TZConnection
@@ -85,7 +85,7 @@ object DM: TDM
   object ztblCurUser: TZTable
     Connection = conDB
     Active = True
-    TableName = 'current_user'
+    TableName = 'current_users'
     Left = 72
     Top = 96
     object intgrfldCurUserid: TIntegerField
@@ -121,5 +121,39 @@ object DM: TDM
     DataSet = ztblPractik
     Left = 240
     Top = 160
+  end
+  object ZtblDolgi: TZTable
+    Connection = conDB
+    TableName = 'Dolgi'
+    Left = 280
+    Top = 96
+    object ZtblDolgiid: TIntegerField
+      FieldName = 'id'
+    end
+    object ZtblDolgiuser_id: TFloatField
+      FieldName = 'user_id'
+      Required = True
+      Visible = False
+    end
+    object ZtblDolgipredmet: TStringField
+      DisplayWidth = 25
+      FieldName = 'predmet'
+      ReadOnly = True
+      Size = 100
+    end
+    object ZtblDolgiDolg: TBooleanField
+      FieldName = 'Dolg'
+      ReadOnly = True
+    end
+    object ZtblDolgiName: TMemoField
+      FieldName = 'Name'
+      ReadOnly = True
+      BlobType = ftMemo
+    end
+  end
+  object DsDolgi: TDataSource
+    DataSet = ZtblDolgi
+    Left = 152
+    Top = 168
   end
 end

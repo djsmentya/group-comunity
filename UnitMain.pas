@@ -23,11 +23,15 @@ type
     N1: TMenuItem;
     profile: TMenuItem;
     btnProfile: TToolButton;
+    Dolgi: TMenuItem;
+    ToolButtonDolgi: TToolButton;
     procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
     procedure zachetkaClick(Sender: TObject);
     procedure profileClick(Sender: TObject);
     procedure N1Click(Sender: TObject);
+    procedure ToolButtonDolgiClick(Sender: TObject);
+    procedure DolgiClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,7 +46,7 @@ implementation
 uses
 
   UnitDataModule, Tray_7, UnitEv, Unit1doska,
-  UnitZachetka, UnitProfile, UnitEdit;
+  UnitZachetka, UnitProfile, UnitEdit, UnitDolgi;
 
 {$R *.dfm}
 
@@ -70,6 +74,16 @@ procedure TFormMain.N1Click(Sender: TObject);
 begin
 FormEdit.ShowModal;
 
+end;
+
+procedure TFormMain.ToolButtonDolgiClick(Sender: TObject);
+begin
+FormDolgi.show;
+end;
+
+procedure TFormMain.DolgiClick(Sender: TObject);
+begin
+FormDolgi.show;
 end;
 
 end.

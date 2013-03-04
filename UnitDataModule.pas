@@ -29,6 +29,13 @@ type
     ztblRatingkurs: TStringField;
     ztblPractik: TZTable;
     dsPractik: TDataSource;
+    ZtblDolgi: TZTable;
+    DsDolgi: TDataSource;
+    ZtblDolgipredmet: TStringField;
+    ZtblDolgiDolg: TBooleanField;
+    ZtblDolgiName: TStringField;
+    ZtblDolgiid: TIntegerField;
+    ZtblDolgiuser_id: TFloatField;
   private
     { Private declarations }
   public

@@ -122,4 +122,39 @@ object DM: TDM
     Left = 240
     Top = 160
   end
+  object ZtblDolgi: TZTable
+    Connection = conDB
+    Active = True
+    TableName = 'Dolgi'
+    Left = 280
+    Top = 96
+    object ZtblDolgiName: TStringField
+      DisplayWidth = 25
+      FieldName = 'Name'
+      Size = 1020
+    end
+    object ZtblDolgipredmet: TStringField
+      DisplayWidth = 25
+      FieldName = 'predmet'
+      Size = 1020
+    end
+    object ZtblDolgiDolg: TBooleanField
+      FieldName = 'Dolg'
+      DisplayValues = #229#241#242#252';'#205#229#242
+    end
+    object ZtblDolgiid: TIntegerField
+      FieldName = 'id'
+      LookupDataSet = ztblCurUser
+      Visible = False
+    end
+    object ZtblDolgiuser_id: TFloatField
+      FieldName = 'user_id'
+      Visible = False
+    end
+  end
+  object DsDolgi: TDataSource
+    DataSet = ZtblDolgi
+    Left = 152
+    Top = 168
+  end
 end

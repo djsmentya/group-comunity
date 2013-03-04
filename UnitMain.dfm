@@ -1,6 +1,6 @@
 object FormMain: TFormMain
-  Left = 200
-  Top = 229
+  Left = 239
+  Top = 201
   Width = 928
   Height = 480
   Caption = 'FormMain'
@@ -26,20 +26,27 @@ object FormMain: TFormMain
     object ToolBtnAdvert: TToolButton
       Left = 0
       Top = 2
-      Caption = #1044#1086#1089#1082#1072' '#1086#1073#1098#1103#1074#1083#1077#1085#1080#1081
+      Caption = '????? ??????????'
       MenuItem = doska
     end
     object btnZachetka: TToolButton
       Left = 33
       Top = 2
-      Caption = #1047#1072#1095#1105#1090#1082#1072
+      Caption = '???????'
       MenuItem = zachetka
     end
     object btnProfile: TToolButton
       Left = 66
       Top = 2
-      Caption = #1055#1088#1086#1092#1080#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+      Caption = '??????? ????????????'
       MenuItem = profile
+    end
+    object ToolButtonDolgi: TToolButton
+      Left = 99
+      Top = 2
+      Caption = #199#224#228#238#235#230#237#238#241#242#232
+      MenuItem = Dolgi
+      OnClick = ToolButtonDolgiClick
     end
   end
   object Panel: TPanel
@@ -54,35 +61,39 @@ object FormMain: TFormMain
     Left = 872
     Top = 392
     object fileMenu: TMenuItem
-      Caption = #1060#1072#1081#1083
+      Caption = '????'
       object exitMenu: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = '?????'
         OnClick = exitMenuClick
       end
     end
     object edit: TMenuItem
-      Caption = #1055#1088#1072#1074#1082#1072
+      Caption = '??????'
       object pref: TMenuItem
-        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
+        Caption = '?????????'
       end
       object N1: TMenuItem
-        Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1083#1080#1095#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
+        Caption = '????????????? ?????? ??????'
         OnClick = N1Click
       end
     end
     object view: TMenuItem
-      Caption = #1042#1080#1076
+      Caption = '???'
       object doska: TMenuItem
-        Caption = #1044#1086#1089#1082#1072' '#1086#1073#1098#1103#1074#1083#1077#1085#1080#1081
+        Caption = '????? ??????????'
         OnClick = doskaClick
       end
       object zachetka: TMenuItem
-        Caption = #1047#1072#1095#1105#1090#1082#1072
+        Caption = '???????'
         OnClick = zachetkaClick
       end
       object profile: TMenuItem
-        Caption = #1055#1088#1086#1092#1080#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
+        Caption = '??????? ????????????'
         OnClick = profileClick
+      end
+      object Dolgi: TMenuItem
+        Caption = #199#224#228#238#235#230#237#238#241#242#232
+        OnClick = DolgiClick
       end
     end
   end
