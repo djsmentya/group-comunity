@@ -61,7 +61,7 @@ object FormProfile: TFormProfile
     object dbtxtname: TDBText
       Left = 128
       Top = 16
-      Width = 70
+      Width = 79
       Height = 25
       AutoSize = True
       DataField = 'name'
@@ -159,7 +159,7 @@ object FormProfile: TFormProfile
       object dbtxtaddresses: TDBText
         Left = 144
         Top = 56
-        Width = 23
+        Width = 101
         Height = 14
         AutoSize = True
         DataField = 'addresses'
@@ -200,7 +200,7 @@ object FormProfile: TFormProfile
       object dbtxtTelephone: TDBText
         Left = 144
         Top = 80
-        Width = 4
+        Width = 84
         Height = 14
         AutoSize = True
         DataField = 'Telephone'
@@ -242,8 +242,8 @@ object FormProfile: TFormProfile
       object dbtxtInstitute: TDBText
         Left = 112
         Top = 56
-        Width = 4
-        Height = 14
+        Width = 265
+        Height = 33
         AutoSize = True
         DataField = 'Institute'
         DataSource = DM.dsUser
@@ -270,9 +270,9 @@ object FormProfile: TFormProfile
       end
       object dbtxtfaculty: TDBText
         Left = 112
-        Top = 96
-        Width = 4
-        Height = 14
+        Top = 88
+        Width = 257
+        Height = 41
         AutoSize = True
         DataField = 'faculty'
         DataSource = DM.dsUser
@@ -300,8 +300,8 @@ object FormProfile: TFormProfile
       object dbtxtcathedra: TDBText
         Left = 112
         Top = 136
-        Width = 4
-        Height = 14
+        Width = 217
+        Height = 25
         AutoSize = True
         DataField = 'cathedra'
         DataSource = DM.dsUser
@@ -316,7 +316,7 @@ object FormProfile: TFormProfile
       object dbtxtschool: TDBText
         Left = 112
         Top = 32
-        Width = 4
+        Width = 265
         Height = 14
         AutoSize = True
         DataField = 'school'
