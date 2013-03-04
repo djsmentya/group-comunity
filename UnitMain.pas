@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ToolWin, ComCtrls, Menus, ExtCtrls, DB, ZAbstractRODataset,
-  ZAbstractDataset, ZDataset;
+  ZAbstractDataset, ZDataset, ImgList;
 
 type
   TFormMain = class(TForm)
@@ -15,7 +15,6 @@ type
     edit: TMenuItem;
     ToolBar: TToolBar;
     view: TMenuItem;
-    pref: TMenuItem;
     Panel: TPanel;
     doska: TMenuItem;
     ToolBtnAdvert: TToolButton;
@@ -26,12 +25,14 @@ type
     btnProfile: TToolButton;
     chat: TMenuItem;
     ToolBChat: TToolButton;
+    ImageList1: TImageList;
     procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
     procedure zachetkaClick(Sender: TObject);
     procedure profileClick(Sender: TObject);
     procedure N1Click(Sender: TObject);
     procedure chatClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,6 +80,11 @@ end;
 procedure TFormMain.chatClick(Sender: TObject);
 begin
 FormChat.show;
+end;
+
+procedure TFormMain.FormShow(Sender: TObject);
+begin
+FormProfile.show;
 end;
 
 end.

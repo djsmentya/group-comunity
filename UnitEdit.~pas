@@ -110,7 +110,7 @@ begin
   Post;
   Refresh;
 end;
-
+{
 edtFamil.Clear;
 edtName.Clear;
 edtOtches.Clear;
@@ -124,7 +124,7 @@ cbbVUZ.Text:='';
 cbbFacult.Text:='';
 cbbKaf.Text:='';
 edtGroup.Clear;
-cbbKurs.Text:='';
+cbbKurs.Text:='';}
 end;
 
 end.

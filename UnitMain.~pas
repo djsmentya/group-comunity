@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ToolWin, ComCtrls, Menus, ExtCtrls;
+  Dialogs, ToolWin, ComCtrls, Menus, ExtCtrls, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset;
 
 type
   TFormMain = class(TForm)
@@ -45,7 +46,7 @@ implementation
 uses
 
   UnitDataModule, Tray_7, UnitEv, Unit1doska,
-  UnitZachetka, UnitProfile, UnitEdit, UnitChat;
+  UnitZachetka, UnitProfile, UnitEdit, MainUnit;
 
 {$R *.dfm}
 

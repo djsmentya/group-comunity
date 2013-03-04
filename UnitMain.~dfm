@@ -1,9 +1,10 @@
 object FormMain: TFormMain
-  Left = 216
-  Top = 215
-  Width = 928
-  Height = 480
+  Left = 278
+  Top = 336
+  BorderStyle = bsSingle
   Caption = 'FormMain'
+  ClientHeight = 422
+  ClientWidth = 912
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
