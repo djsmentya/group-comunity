@@ -1,7 +1,7 @@
 object DM: TDM
   OldCreateOrder = False
-  Left = 335
-  Top = 133
+  Left = 676
+  Top = 140
   Height = 287
   Width = 338
   object conDB: TZConnection
@@ -85,7 +85,7 @@ object DM: TDM
   object ztblCurUser: TZTable
     Connection = conDB
     Active = True
-    TableName = 'current_user'
+    TableName = 'current_users'
     Left = 72
     Top = 96
     object intgrfldCurUserid: TIntegerField

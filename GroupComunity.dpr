@@ -11,7 +11,7 @@ uses
   Unit1 in 'Unit1.pas' {DataModule1: TDataModule},
   UnitProfile in 'UnitProfile.pas' {FormProfile},
   UnitEdit in 'UnitEdit.pas' {FormEdit},
-  UnitChat in 'UnitChat.pas' {FormChat};
+  MainUnit in 'MainUnit.pas' {FormChat};
 
 {$R *.res}
 

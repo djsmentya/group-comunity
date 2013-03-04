@@ -38,7 +38,6 @@ procedure TTray.FormCreate(Sender: TObject);
 begin
 parent := FormMain.Panel;
 Application.OnMinimize:=OnMinimizeWindow;
-Tray.OnCreate:=OnMinimizeWindow;
 
 end;
 

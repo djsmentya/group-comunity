@@ -1,9 +1,10 @@
 object DM: TDM
   OldCreateOrder = False
-  Left = 676
-  Top = 140
-  Height = 287
-  Width = 338
+  OnCreate = DataModuleCreate
+  Left = 962
+  Top = 107
+  Height = 307
+  Width = 359
   object conDB: TZConnection
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
@@ -116,10 +117,38 @@ object DM: TDM
     TableName = 'Practik'
     Left = 240
     Top = 96
+    object ztblPractikid: TIntegerField
+      FieldName = 'id'
+    end
+    object ztblPractikkurs: TStringField
+      FieldName = 'kurs'
+      Size = 1020
+    end
+    object ztblPractikid_users: TFloatField
+      FieldName = 'id_users'
+    end
+    object ztblPractikid_items: TFloatField
+      FieldName = 'id_items'
+    end
+    object ztblPractikzachet: TStringField
+      FieldName = 'zachet'
+      Size = 1020
+    end
   end
   object dsPractik: TDataSource
     DataSet = ztblPractik
     Left = 240
     Top = 160
+  end
+  object IniQuery: TZQuery
+    Connection = conDB
+    Active = True
+    SQL.Strings = (
+      
+        'INSERT INTO users VALUES(NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL' +
+        ',NULL,NULL,NULL,NULL,NULL,NULL,NULL)')
+    Params = <>
+    Left = 136
+    Top = 208
   end
 end

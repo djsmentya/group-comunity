@@ -10,7 +10,8 @@ uses
   UnitZachetka in 'UnitZachetka.pas' {FormZachetka},
   Unit1 in 'Unit1.pas' {DataModule1: TDataModule},
   UnitProfile in 'UnitProfile.pas' {FormProfile},
-  UnitEdit in 'UnitEdit.pas' {FormEdit};
+  UnitEdit in 'UnitEdit.pas' {FormEdit},
+  UnitChat in 'UnitChat.pas' {FormChat};
 
 {$R *.res}
 
@@ -25,5 +26,6 @@ begin
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TFormProfile, FormProfile);
   Application.CreateForm(TFormEdit, FormEdit);
+  Application.CreateForm(TFormChat, FormChat);
   Application.Run;
 end.

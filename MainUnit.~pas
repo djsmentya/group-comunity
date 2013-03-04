@@ -1,0 +1,394 @@
+unit MainUnit;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ScktComp, ExtCtrls, ImgList, ComCtrls;
+
+type
+  TForm1 = class(TForm)
+    ServerSocket: TServerSocket;
+    ClientSocket: TClientSocket;
+    PortEdit: TEdit;
+    NikEdit: TEdit;
+    TextEdit: TEdit;
+    ChatMemo: TMemo;
+    HostEdit: TEdit;
+    ServerBtn: TButton;
+    ClientBtn: TButton;
+    SendBtn: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    UserListView: TListView;
+    Label6: TLabel;
+    ImageList: TImageList;
+    ServerTimer: TTimer;
+    procedure FormCreate(Sender: TObject);
+    procedure UpdateUserList;
+    procedure UpdateUserMas;
+    procedure ServerBtnClick(Sender: TObject);
+    procedure ClientBtnClick(Sender: TObject);
+    procedure ServerSocketClientConnect(Sender: TObject;
+      Socket: TCustomWinSocket);
+    procedure ServerSocketClientDisconnect(Sender: TObject;
+      Socket: TCustomWinSocket);
+    procedure SendBtnClick(Sender: TObject);
+    procedure ClientSocketRead(Sender: TObject; Socket: TCustomWinSocket);
+    procedure ClientSocketDisconnect(Sender: TObject;
+      Socket: TCustomWinSocket);
+    procedure ClientSocketConnect(Sender: TObject;
+      Socket: TCustomWinSocket);
+    procedure ServerTimerTimer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+
+Type
+  TUserList = object
+  Status: Byte;    // 1 - сервер, 2 - клиент
+  Rec: Boolean;    // отметка записи пользователя в список
+  Name: String;    // имя (ник)
+  Image: Byte;     // индекс иконки
+ end;
+
+var
+  Form1: TForm1;
+  i, j, com, ContList: Byte;
+  len, pos, x: Word;
+  text, StrUserList: String;
+  UpdDo: Boolean;
+  Buf: array[0..3] of Byte;
+  UserMas: array[0..255] of TUserList; //массив объектов
+  UItems: TListItem;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+// заголовок формы
+  Caption:='Многопользовательский чат';
+  Application.Title:=Caption;
+// предложенное значения порта
+  PortEdit.Text:='7777';
+// адрес при проверке программы на одном ПК ("сам на себя")
+  HostEdit.Text:='127.0.0.1';
+// введем ник по-умолчанию, остальные поля просто очистим
+  NikEdit.Text:='Ананим';
+  TextEdit.Clear;
+  ChatMemo.Lines.Clear;
+end;
+
+procedure TForm1.UpdateUserList;
+begin
+// очищаем список клиентов
+  UserListView.Items.Clear;
+// очищаем переменную
+  StrUserList:='';
+// обнуляем пометку записи
+  ContList:=0;
+// пробегаем по диапазону каналов
+  For i:=0 to 255 do
+    Begin
+// если запись не пустая
+      If UserMas[i].Status<>0 then
+        Begin
+// добавим в UserListView строку
+          UItems:=UserListView.Items.Add;
+          UItems.Caption:=UserMas[i].Name;
+          UItems.ImageIndex:=UserMas[i].Image;
+// если пользователь не записан
+          If UserMas[i].Rec=False then ContList:=1;
+// составляем строку пользователей
+          StrUserList:=StrUserList+UserMas[i].Name+Chr(152);
+        end;
+    end;
+// если все пользователи отметились, и есть хоть один канал
+    If (ContList=0) And (ServerSocket.Socket.ActiveConnections<>0) then
+      Begin
+// пробегаем по всем открытым каналам
+        For i:=0 to ServerSocket.Socket.ActiveConnections-1 do
+          Begin
+// отправим строку списка пользователей (код команды - 2)
+            ServerSocket.Socket.Connections[i].SendText('2'+StrUserList);
+          end;
+      end;
+end;
+
+procedure TForm1.UpdateUserMas;
+begin
+// очищаем массив с информацией
+  For i:=1 to 255 do
+    Begin
+      UserMas[i].Status:=0;
+      UserMas[i].Rec:=False;
+      UserMas[i].Name:='Неизвестный';
+      UserMas[i].Image:=0;
+    end;
+// заполняем данные пользователей
+  If ServerSocket.Socket.ActiveConnections<>0 then
+    Begin
+      For i:=1 to ServerSocket.Socket.ActiveConnections do
+        Begin
+          UserMas[i].Status:=2;
+          UserMas[i].Name:='Неизвестный';
+          UserMas[i].Image:=0;
+// запрашиваем имя (ник) пользователя по его каналу (код команды - 1)
+          ServerSocket.Socket.Connections[i-1].SendText('1');
+        end;
+    end;
+end;
+
+procedure TForm1.ServerBtnClick(Sender: TObject);
+begin
+  If ServerBtn.Tag=0 then
+    Begin
+// клавишу ClientBtn и поля HostEdit, PortEdit, NikEdit заблокируем
+      ClientBtn.Enabled:=False;
+      HostEdit.Enabled:=False;
+      PortEdit.Enabled:=False;
+      NikEdit.Enabled:=False;
+// запишем указанный порт в ServerSocket
+      ServerSocket.Port:=StrToInt(PortEdit.Text);
+// запускаем сервер
+      ServerSocket.Active:=True;
+// добавим в ChatMemo сообщение с временем создания
+      ChatMemo.Lines.Add('['+TimeToStr(Time)+']  Сервер создан.');
+// изменяем тэг
+      ServerBtn.Tag:=1;
+// меняем надпись клавиши
+      ServerBtn.Caption:='Закрыть сервер';
+// включаем таймер сервера
+      ServerTimer.Enabled:=True;
+// вписываем параметры сервера
+      UserMas[0].Status:=1;
+      UserMas[0].Rec:=True;
+      UserMas[0].Name:=NikEdit.Text;
+      UserMas[0].Image:=1;
+// разрешаем обновление
+      UpdDo:=True;
+    end
+  else
+    Begin
+// выключаем таймер сервера
+      ServerTimer.Enabled:=False;
+// стираем параметры сервера
+      UserMas[0].Status:=0;
+      UserMas[0].Rec:=False;
+      UserMas[0].Name:='Неизвестный';
+      UserMas[0].Image:=0;
+// разрешаем обновление
+      UpdDo:=True;
+// очищаем список клиентов
+      UserListView.Items.Clear;      
+// клавишу ClientBtn и поля HostEdit, PortEdit, NikEdit разблокируем
+      ClientBtn.Enabled:=True;
+      HostEdit.Enabled:=True;
+      PortEdit.Enabled:=True;
+      NikEdit.Enabled:=True;
+// закрываем сервер
+      ServerSocket.Active:=False;
+// выводим сообщение в ChatMemo
+      ChatMemo.Lines.Add('['+TimeToStr(Time)+']  Сервер закрыт.');
+// возвращаем тэгу исходное значение
+      ServerBtn.Tag:=0;
+// возвращаем исходную надпись клавиши
+      ServerBtn.Caption:='Создать сервер';
+    end;
+end;
+
+procedure TForm1.ClientBtnClick(Sender: TObject);
+begin
+  If ClientBtn.Tag=0 then
+    Begin
+// клавишу ServerBtn и поля HostEdit, PortEdit заблокируем
+      ServerBtn.Enabled:=False;
+      HostEdit.Enabled:=False;
+      PortEdit.Enabled:=False;
+// запишем указанный порт в ClientSocket
+      ClientSocket.Port:=StrToInt(PortEdit.Text);
+// запишем хост и адрес (одно значение HostEdit в оба)
+      ClientSocket.Host:=HostEdit.Text;
+      ClientSocket.Address:=HostEdit.Text;
+// запускаем клиента
+      ClientSocket.Active:=True;
+// изменяем тэг
+      ClientBtn.Tag:=1;
+// меняем надпись клавиши
+      ClientBtn.Caption:='Отключиться';
+    end
+  else
+    Begin
+// клавишу ServerBtn и поля HostEdit, PortEdit разблокируем
+      ServerBtn.Enabled:=True;
+      HostEdit.Enabled:=True;
+      PortEdit.Enabled:=True;
+// закрываем клиента
+      ClientSocket.Active:=False;
+// очищаем список клиентов
+      UserListView.Items.Clear;      
+// выводим сообщение в ChatMemo
+      ChatMemo.Lines.Add('['+TimeToStr(Time)+']  Сессия закрыта.');
+// возвращаем тэгу исходное значение
+      ClientBtn.Tag:=0;
+// возвращаем исходную надпись клавиши
+      ClientBtn.Caption:='Подключиться';
+    end;
+end;
+
+procedure TForm1.ServerSocketClientConnect(Sender: TObject;
+  Socket: TCustomWinSocket);
+begin
+// добавим в ChatMemo сообщение с временем подключения клиента
+  ChatMemo.Lines.Add('['+TimeToStr(Time)+']  Подключился клиент.');
+// разрешаем обновление
+  UpdDo:=True;
+end;
+
+procedure TForm1.ServerSocketClientDisconnect(Sender: TObject;
+  Socket: TCustomWinSocket);
+begin
+// добавим в ChatMemo сообщение с временем отключения клиента
+  ChatMemo.Lines.Add('['+TimeToStr(Time)+']  Клиент отключился.');
+// разрешаем обновление
+  UpdDo:=True;
+end;
+
+procedure TForm1.SendBtnClick(Sender: TObject);
+begin
+// проверка, в каком режиме находится программа
+  If ServerSocket.Active=True then
+// отправляем сообщение с сервера всем пользователям
+    For i:=0 to ServerSocket.Socket.ActiveConnections-1 do
+      ServerSocket.Socket.Connections[i].SendText('0['+TimeToStr(Time)+']  '+NikEdit.Text+':  '+TextEdit.Text)
+  else
+// отправляем сообщение с клиента
+    ClientSocket.Socket.SendText('0['+TimeToStr(Time)+']  '+NikEdit.Text+':  '+TextEdit.Text);
+// отобразим сообщение в ChatMemo
+  ChatMemo.Lines.Add('['+TimeToStr(Time)+']  '+NikEdit.Text+':  '+TextEdit.Text);
+// очищаем TextEdit
+  TextEdit.Clear;
+end;
+
+procedure TForm1.ClientSocketRead(Sender: TObject;
+  Socket: TCustomWinSocket);
+begin
+// получим текст, код комманды, длину строки
+  text:=Socket.ReceiveText();
+  com:=StrToInt(Copy(text,1,1));
+  len:=Length(text)-1;
+// определение комманд
+  Case com of
+// добавим в ChatMemo сообщение с сервера
+    0: ChatMemo.Lines.Add(Copy(text,2,len));
+// отошлем свой ник на сервер
+    1: ClientSocket.Socket.SendText('1'+NikEdit.Text);
+// примем строку списка пользователей
+    2: Begin
+// очищаем список клиентов
+         UserListView.Items.Clear;
+// добавим ключ конца строки (т.к. вырезка символов с задержкой)
+         text:=text+Chr(152);
+// укажем начальный символ
+         pos:=2;
+// обнулим счетчик символов
+         x:=0;
+// пробегаем по длине строки списка
+         For j:=2 to len+1 do
+           Begin
+// записываем в счетчик сдвиг
+             x:=x+1;
+// если найден ключ (отделение ников в строке)
+             If Copy(text,j,1)=Chr(152) then
+               Begin
+// добавим в UserListView строку
+                 UItems:=UserListView.Items.Add;
+                 UItems.Caption:=Copy(text,pos,x-1);
+// укажем соответствующую иконку пользователя
+                 If pos>2 then UItems.ImageIndex:=0 else UItems.ImageIndex:=1;
+// изменим текущую позицию в строке списка
+                 pos:=j+1;
+// обнулим счетчик символов
+                 x:=0;
+               end;
+           end;
+       end;
+   end;
+end;
+
+procedure TForm1.ClientSocketConnect(Sender: TObject;
+  Socket: TCustomWinSocket);
+begin
+// добавим в ChatMemo сообщение о соединении с сервером
+  ChatMemo.Lines.Add('['+TimeToStr(Time)+']  Подключение к серверу.');
+end;
+
+procedure TForm1.ClientSocketDisconnect(Sender: TObject;
+  Socket: TCustomWinSocket);
+begin
+// добавим в ChatMemo сообщение о потере связи
+  ChatMemo.Lines.Add('['+TimeToStr(Time)+']  Сервер не найден.');
+end;
+
+procedure TForm1.ServerTimerTimer(Sender: TObject);
+begin
+// условие на наличие установленных каналов
+  If ServerSocket.Socket.ActiveConnections<>0 then
+    Begin
+// цикл по существующим каналам
+      For i:=1 to ServerSocket.Socket.ActiveConnections do
+        Begin
+// сохраним пакет (если ничего не прислали, по пакет пустой)
+          text:=ServerSocket.Socket.Connections[i-1].ReceiveText();
+// условие, что пакет не пуст
+          If text<>'' then
+            Begin
+// получим код команды, длину строки
+              com:=StrToInt(Copy(text,1,1));
+              len:=Length(text)-1;
+// определение команд
+              Case com of
+// код приема сообщения
+                0: Begin
+// добавим в ChatMemo сообщение клиента
+                     ChatMemo.Lines.Add(Copy(text,2,len));
+// разошлем сообщение пользователям (кроме того, кто прислал)
+                     For j:=0 to ServerSocket.Socket.ActiveConnections-1 do
+                       Begin
+                         If (j+1)<>i then ServerSocket.Socket.Connections[j].SendText('0'+Copy(text,2,len));
+                       end;
+                   end;
+// код приема ника клиента
+                1: Begin
+// запишем в массив полученный ник
+                     UserMas[i].Name:=Copy(text,2,len);
+// отметим, что пользователь записан в список
+                     UserMas[i].Rec:=True;
+// обновляем список
+                     UpdateUserList;
+                   end;
+               end;
+            end;
+        end;
+    end;
+// разрешение на выполнение процедур обновления
+  If UpdDo=True then
+    Begin
+// обновляем массив пользователей
+      UpdateUserMas;
+// обновляем список пользователей
+      UpdateUserList;
+// блокируем разрешение      
+      UpdDo:=False;
+    end;
+end;
+
+end.
