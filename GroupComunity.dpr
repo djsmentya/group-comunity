@@ -12,7 +12,8 @@ uses
   UnitProfile in 'UnitProfile.pas' {FormProfile},
   UnitEdit in 'UnitEdit.pas' {FormEdit},
   MainUnit in 'MainUnit.pas' {FormChat},
-  UnitDolgi in 'UnitDolgi.pas' {FormDolgi};
+  UnitDolgi in 'UnitDolgi.pas' {FormDolgi},
+  UnitSchedule in 'UnitSchedule.pas' {FormSchedule};
 
 {$R *.res}
 
@@ -29,5 +30,6 @@ begin
   Application.CreateForm(TFormEdit, FormEdit);
   Application.CreateForm(TFormChat, FormChat);
   Application.CreateForm(TFormDolgi, FormDolgi);
+  Application.CreateForm(TFormSchedule, FormSchedule);
   Application.Run;
 end.

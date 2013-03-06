@@ -4,10 +4,11 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ScktComp, ExtCtrls, ImgList, ComCtrls;
+  Dialogs, StdCtrls, ScktComp, ExtCtrls, ImgList, ComCtrls, DB,
+  ZAbstractRODataset, ZAbstractDataset, ZDataset;
 
 type
-  TForm1 = class(TForm)
+  TFormChat = class(TForm)
     ServerSocket: TServerSocket;
     ClientSocket: TClientSocket;
     PortEdit: TEdit;
@@ -18,15 +19,30 @@ type
     ServerBtn: TButton;
     ClientBtn: TButton;
     SendBtn: TButton;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
     UserListView: TListView;
     Label6: TLabel;
     ImageList: TImageList;
     ServerTimer: TTimer;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    QueryCurrentU: TZQuery;
+    QueryCurrentUcathedra: TStringField;
+    QueryCurrentUInstitute: TStringField;
+    QueryCurrentUdate: TStringField;
+    QueryCurrentUfaculty: TStringField;
+    QueryCurrentUcity: TStringField;
+    QueryCurrentUschool: TStringField;
+    QueryCurrentUTelephone: TStringField;
+    QueryCurrentUaddresses: TStringField;
+    QueryCurrentUkurs: TStringField;
+    QueryCurrentUid: TIntegerField;
+    QueryCurrentUrole: TStringField;
+    QueryCurrentUklass: TStringField;
+    QueryCurrentUpatronymic: TStringField;
+    QueryCurrentUsurname: TStringField;
+    QueryCurrentUname: TStringField;
     procedure FormCreate(Sender: TObject);
     procedure UpdateUserList;
     procedure UpdateUserMas;
@@ -43,6 +59,8 @@ type
     procedure ClientSocketConnect(Sender: TObject;
       Socket: TCustomWinSocket);
     procedure ServerTimerTimer(Sender: TObject);
+    procedure ClientSocketError(Sender: TObject; Socket: TCustomWinSocket;
+      ErrorEvent: TErrorEvent; var ErrorCode: Integer);
   private
     { Private declarations }
   public
@@ -59,7 +77,7 @@ Type
  end;
 
 var
-  Form1: TForm1;
+  FormChat: TFormChat;
   i, j, com, ContList: Byte;
   len, pos, x: Word;
   text, StrUserList: String;
@@ -69,25 +87,32 @@ var
   UItems: TListItem;
 
 implementation
-
+uses
+UnitMain, UnitDataModule;
 {$R *.dfm}
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TFormChat.FormCreate(Sender: TObject);
 begin
+parent := FormMain.Panel;
 // заголовок формы
-  Caption:='ћногопользовательский чат';
-  Application.Title:=Caption;
+//  Caption:='ћногопользовательский чат';
+//  Application.Title:=Caption;
 // предложенное значени€ порта
   PortEdit.Text:='7777';
 // адрес при проверке программы на одном ѕ  ("сам на себ€")
   HostEdit.Text:='127.0.0.1';
 // введем ник по-умолчанию, остальные пол€ просто очистим
-  NikEdit.Text:='јнаним';
+if DM.CurrentUser > 0 then
+begin
+QueryCurrentU.ParamByName('id').AsString := IntToStr(DM.CurrentUser);
+QueryCurrentU.ExecSQL;
+  NikEdit.Text:= VarToStr(QueryCurrentU.FieldValues['name']);
+  end;
   TextEdit.Clear;
   ChatMemo.Lines.Clear;
 end;
 
-procedure TForm1.UpdateUserList;
+procedure TFormChat.UpdateUserList;
 begin
 // очищаем список клиентов
   UserListView.Items.Clear;
@@ -123,7 +148,7 @@ begin
       end;
 end;
 
-procedure TForm1.UpdateUserMas;
+procedure TFormChat.UpdateUserMas;
 begin
 // очищаем массив с информацией
   For i:=1 to 255 do
@@ -147,7 +172,7 @@ begin
     end;
 end;
 
-procedure TForm1.ServerBtnClick(Sender: TObject);
+procedure TFormChat.ServerBtnClick(Sender: TObject);
 begin
   If ServerBtn.Tag=0 then
     Begin
@@ -205,7 +230,7 @@ begin
     end;
 end;
 
-procedure TForm1.ClientBtnClick(Sender: TObject);
+procedure TFormChat.ClientBtnClick(Sender: TObject);
 begin
   If ClientBtn.Tag=0 then
     Begin
@@ -244,7 +269,7 @@ begin
     end;
 end;
 
-procedure TForm1.ServerSocketClientConnect(Sender: TObject;
+procedure TFormChat.ServerSocketClientConnect(Sender: TObject;
   Socket: TCustomWinSocket);
 begin
 // добавим в ChatMemo сообщение с временем подключени€ клиента
@@ -253,7 +278,7 @@ begin
   UpdDo:=True;
 end;
 
-procedure TForm1.ServerSocketClientDisconnect(Sender: TObject;
+procedure TFormChat.ServerSocketClientDisconnect(Sender: TObject;
   Socket: TCustomWinSocket);
 begin
 // добавим в ChatMemo сообщение с временем отключени€ клиента
@@ -262,11 +287,13 @@ begin
   UpdDo:=True;
 end;
 
-procedure TForm1.SendBtnClick(Sender: TObject);
+procedure TFormChat.SendBtnClick(Sender: TObject);
 begin
 // проверка, в каком режиме находитс€ программа
-  If ServerSocket.Active=True then
+
+  If (ServerSocket.Active=True) and (ServerSocket.Socket.ActiveConnections > 0) then
 // отправл€ем сообщение с сервера всем пользовател€м
+
     For i:=0 to ServerSocket.Socket.ActiveConnections-1 do
       ServerSocket.Socket.Connections[i].SendText('0['+TimeToStr(Time)+']  '+NikEdit.Text+':  '+TextEdit.Text)
   else
@@ -278,7 +305,7 @@ begin
   TextEdit.Clear;
 end;
 
-procedure TForm1.ClientSocketRead(Sender: TObject;
+procedure TFormChat.ClientSocketRead(Sender: TObject;
   Socket: TCustomWinSocket);
 begin
 // получим текст, код комманды, длину строки
@@ -324,21 +351,21 @@ begin
    end;
 end;
 
-procedure TForm1.ClientSocketConnect(Sender: TObject;
+procedure TFormChat.ClientSocketConnect(Sender: TObject;
   Socket: TCustomWinSocket);
 begin
 // добавим в ChatMemo сообщение о соединении с сервером
   ChatMemo.Lines.Add('['+TimeToStr(Time)+']  ѕодключение к серверу.');
 end;
 
-procedure TForm1.ClientSocketDisconnect(Sender: TObject;
+procedure TFormChat.ClientSocketDisconnect(Sender: TObject;
   Socket: TCustomWinSocket);
 begin
 // добавим в ChatMemo сообщение о потере св€зи
   ChatMemo.Lines.Add('['+TimeToStr(Time)+']  —ервер не найден.');
 end;
 
-procedure TForm1.ServerTimerTimer(Sender: TObject);
+procedure TFormChat.ServerTimerTimer(Sender: TObject);
 begin
 // условие на наличие установленных каналов
   If ServerSocket.Socket.ActiveConnections<>0 then
@@ -389,6 +416,28 @@ begin
 // блокируем разрешение      
       UpdDo:=False;
     end;
+end;
+
+procedure TFormChat.ClientSocketError(Sender: TObject;
+  Socket: TCustomWinSocket; ErrorEvent: TErrorEvent;
+  var ErrorCode: Integer);
+begin
+ErrorCode:=0;
+// клавишу ServerBtn и пол€ HostEdit, PortEdit разблокируем
+      ServerBtn.Enabled:=True;
+      HostEdit.Enabled:=True;
+      PortEdit.Enabled:=True;
+// закрываем клиента
+      ClientSocket.Active:=False;
+// очищаем список клиентов
+      UserListView.Items.Clear;      
+// выводим сообщение в ChatMemo
+      ChatMemo.Lines.Add('['+TimeToStr(Time)+']  —есси€ закрыта.');
+// возвращаем тэгу исходное значение
+      ClientBtn.Tag:=0;
+// возвращаем исходную надпись клавиши
+      ClientBtn.Caption:='ѕодключитьс€';
+ ChatMemo.Lines.Add('['+TimeToStr(Time)+']  Server:  ќшибка соединени€, проверте правильность IP јдреса и порта. ¬озможно нужно настроить FireWall');
 end;
 
 end.

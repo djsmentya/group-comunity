@@ -1,10 +1,11 @@
-object Form1: TForm1
-  Left = 231
-  Top = 244
-  BorderStyle = bsSingle
+object FormChat: TFormChat
+  Left = 457
+  Top = 190
+  Align = alClient
+  BorderStyle = bsNone
   Caption = #1063#1072#1090
-  ClientHeight = 369
-  ClientWidth = 601
+  ClientHeight = 382
+  ClientWidth = 909
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,9 +16,46 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label4: TLabel
+    Left = 0
+    Top = 359
+    Width = 769
+    Height = 26
+    Alignment = taCenter
+    AutoSize = False
+    Caption = #1058#1077#1082#1089#1090' '#1089#1086#1086#1073#1097#1077#1085#1080#1103
+    Color = 16744576
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Layout = tlCenter
+  end
+  object Label6: TLabel
+    Left = 768
+    Top = 0
+    Width = 144
+    Height = 25
+    Align = alCustom
+    Alignment = taCenter
+    AutoSize = False
+    Caption = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1080
+    Color = 16744576
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Layout = tlCenter
+  end
   object Label1: TLabel
-    Left = 8
-    Top = 7
+    Left = 128
+    Top = -1
     Width = 65
     Height = 17
     Alignment = taCenter
@@ -34,8 +72,8 @@ object Form1: TForm1
     Layout = tlCenter
   end
   object Label2: TLabel
-    Left = 80
-    Top = 7
+    Left = 0
+    Top = -1
     Width = 113
     Height = 17
     Alignment = taCenter
@@ -52,8 +90,8 @@ object Form1: TForm1
     Layout = tlCenter
   end
   object Label3: TLabel
-    Left = 8
-    Top = 55
+    Left = 224
+    Top = -1
     Width = 81
     Height = 17
     Alignment = taCenter
@@ -69,89 +107,35 @@ object Form1: TForm1
     ParentFont = False
     Layout = tlCenter
   end
-  object Label4: TLabel
-    Left = 96
-    Top = 55
-    Width = 497
-    Height = 17
-    Alignment = taCenter
-    AutoSize = False
-    Caption = #1058#1077#1082#1089#1090' '#1089#1086#1086#1073#1097#1077#1085#1080#1103
-    Color = 16744576
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-    Layout = tlCenter
-  end
-  object Label5: TLabel
-    Left = 8
-    Top = 103
-    Width = 433
-    Height = 17
-    Alignment = taCenter
-    AutoSize = False
-    Caption = #1063#1072#1090
-    Color = 16744576
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-    Layout = tlCenter
-  end
-  object Label6: TLabel
-    Left = 448
-    Top = 104
-    Width = 145
-    Height = 17
-    Alignment = taCenter
-    AutoSize = False
-    Caption = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1080
-    Color = 16744576
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWhite
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = [fsBold]
-    ParentColor = False
-    ParentFont = False
-    Layout = tlCenter
-  end
   object PortEdit: TEdit
-    Left = 8
-    Top = 24
+    Left = 128
+    Top = 16
     Width = 65
     Height = 21
     TabOrder = 1
     Text = 'PortEdit'
   end
   object NikEdit: TEdit
-    Left = 8
-    Top = 72
+    Left = 224
+    Top = 16
     Width = 81
     Height = 21
     TabOrder = 5
     Text = 'NikEdit'
   end
   object TextEdit: TEdit
-    Left = 96
-    Top = 72
-    Width = 393
+    Left = 8
+    Top = 336
+    Width = 609
     Height = 21
     TabOrder = 0
     Text = 'TextEdit'
   end
   object ChatMemo: TMemo
-    Left = 8
-    Top = 120
-    Width = 433
-    Height = 241
+    Left = 0
+    Top = 40
+    Width = 761
+    Height = 289
     TabStop = False
     Lines.Strings = (
       'ChatMemo')
@@ -160,16 +144,16 @@ object Form1: TForm1
     TabOrder = 7
   end
   object HostEdit: TEdit
-    Left = 80
-    Top = 24
+    Left = 0
+    Top = 16
     Width = 113
     Height = 21
     TabOrder = 2
     Text = 'HostEdit'
   end
   object ServerBtn: TButton
-    Left = 336
-    Top = 16
+    Left = 496
+    Top = 8
     Width = 129
     Height = 21
     Caption = #1057#1086#1079#1076#1072#1090#1100' '#1089#1077#1088#1074#1077#1088
@@ -183,8 +167,8 @@ object Form1: TForm1
     OnClick = ServerBtnClick
   end
   object ClientBtn: TButton
-    Left = 208
-    Top = 16
+    Left = 368
+    Top = 8
     Width = 113
     Height = 21
     Caption = #1055#1086#1076#1082#1083#1102#1095#1080#1090#1100#1089#1103
@@ -198,9 +182,9 @@ object Form1: TForm1
     OnClick = ClientBtnClick
   end
   object SendBtn: TButton
-    Left = 496
-    Top = 72
-    Width = 97
+    Left = 624
+    Top = 336
+    Width = 137
     Height = 21
     Caption = #1054#1090#1087#1088#1072#1074#1080#1090#1100
     Font.Charset = DEFAULT_CHARSET
@@ -213,10 +197,11 @@ object Form1: TForm1
     OnClick = SendBtnClick
   end
   object UserListView: TListView
-    Left = 448
-    Top = 120
+    Left = 767
+    Top = 24
     Width = 145
-    Height = 241
+    Height = 361
+    Align = alCustom
     Columns = <
       item
         Caption = #1050#1083#1080#1077#1085#1090
@@ -234,8 +219,7 @@ object Form1: TForm1
     ServerType = stNonBlocking
     OnClientConnect = ServerSocketClientConnect
     OnClientDisconnect = ServerSocketClientDisconnect
-    Left = 488
-    Top = 16
+    Left = 672
   end
   object ClientSocket: TClientSocket
     Active = False
@@ -244,12 +228,11 @@ object Form1: TForm1
     OnConnect = ClientSocketConnect
     OnDisconnect = ClientSocketDisconnect
     OnRead = ClientSocketRead
-    Left = 520
-    Top = 16
+    OnError = ClientSocketError
+    Left = 704
   end
   object ImageList: TImageList
-    Left = 552
-    Top = 16
+    Left = 736
     Bitmap = {
       494C010102000400040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
@@ -396,5 +379,84 @@ object Form1: TForm1
     OnTimer = ServerTimerTimer
     Left = 384
     Top = 136
+  end
+  object QueryCurrentU: TZQuery
+    Connection = DM.conDB
+    Active = True
+    SQL.Strings = (
+      'SELECT * from users where id =:id')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    Left = 640
+    Top = 8
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object QueryCurrentUcathedra: TStringField
+      FieldName = 'cathedra'
+      Size = 1020
+    end
+    object QueryCurrentUInstitute: TStringField
+      FieldName = 'Institute'
+      Size = 1020
+    end
+    object QueryCurrentUdate: TStringField
+      FieldName = 'date'
+      Size = 1020
+    end
+    object QueryCurrentUfaculty: TStringField
+      FieldName = 'faculty'
+      Size = 1020
+    end
+    object QueryCurrentUcity: TStringField
+      FieldName = 'city'
+      Size = 1020
+    end
+    object QueryCurrentUschool: TStringField
+      FieldName = 'school'
+      Size = 1020
+    end
+    object QueryCurrentUTelephone: TStringField
+      FieldName = 'Telephone'
+      Size = 1020
+    end
+    object QueryCurrentUaddresses: TStringField
+      FieldName = 'addresses'
+      Size = 1020
+    end
+    object QueryCurrentUkurs: TStringField
+      FieldName = 'kurs'
+      Size = 1020
+    end
+    object QueryCurrentUid: TIntegerField
+      FieldName = 'id'
+    end
+    object QueryCurrentUrole: TStringField
+      FieldName = 'role'
+      Size = 1020
+    end
+    object QueryCurrentUklass: TStringField
+      FieldName = 'klass'
+      Size = 1020
+    end
+    object QueryCurrentUpatronymic: TStringField
+      FieldName = 'patronymic'
+      Size = 1020
+    end
+    object QueryCurrentUsurname: TStringField
+      FieldName = 'surname'
+      Size = 1020
+    end
+    object QueryCurrentUname: TStringField
+      FieldName = 'name'
+      Size = 1020
+    end
   end
 end

@@ -33,16 +33,18 @@ object FormAdvert: TFormAdvert
   object DBText1: TDBText
     Left = 32
     Top = 48
-    Width = 65
-    Height = 17
+    Width = 16
+    Height = 13
+    AutoSize = True
     DataField = 'Name'
     DataSource = DataSource1
   end
   object DBText2: TDBText
     Left = 520
     Top = 40
-    Width = 65
-    Height = 17
+    Width = 3
+    Height = 13
+    AutoSize = True
     DataField = 'Name'
     DataSource = DataSource2
   end

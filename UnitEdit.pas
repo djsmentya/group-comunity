@@ -55,7 +55,7 @@ type
 
 var
   FormEdit: TFormEdit;
-  CurrentUser: Integer;
+ // CurrentUser: Integer;
 implementation
 
 uses
@@ -65,10 +65,10 @@ uses
 
 procedure TFormEdit.FormShow(Sender: TObject);
 begin
-DM.ztblCurUser.First;//переходит на первую запись
-CurrentUser:=DM.ztblCurUser.FieldValues['user_id']; //получаем значение
+//DM.ztblCurUser.First;//переходит на первую запись
+//CurrentUser:=DM.ztblCurUser.FieldValues['user_id']; //получаем значение
 if FormProfile.QueryUs.Active then FormProfile.QueryUs.Close;
-FormProfile.QueryUs.ParamByName('curuser').Value:=CurrentUser;
+FormProfile.QueryUs.ParamByName('curuser').Value:=DM.CurrentUser;
 FormProfile.QueryUs.ExecSQL;
 FormProfile.QueryUs.Active:=True;
 end;

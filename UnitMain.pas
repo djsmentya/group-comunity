@@ -28,6 +28,7 @@ type
     ImageList1: TImageList;
     Dolgi: TMenuItem;
     ToolButtonDolgi: TToolButton;
+    schedule: TMenuItem;
 
     procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
@@ -38,6 +39,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure ToolButtonDolgiClick(Sender: TObject);
     procedure DolgiClick(Sender: TObject);
+    procedure scheduleClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,7 +54,7 @@ implementation
 uses
 
   UnitDataModule, Tray_7, UnitEv, Unit1doska,
-  UnitZachetka, UnitProfile, UnitEdit, MainUnit,UnitDolgi;
+  UnitZachetka, UnitProfile, UnitEdit, MainUnit,UnitDolgi, UnitSchedule;
 
 
 {$R *.dfm}
@@ -100,6 +102,12 @@ end;
 procedure TFormMain.DolgiClick(Sender: TObject);
 begin
 FormDolgi.show;
+end;
+
+procedure TFormMain.scheduleClick(Sender: TObject);
+begin
+FormSchedule.ShowModal;
+
 end;
 
 end.

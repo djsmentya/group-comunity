@@ -62,10 +62,10 @@ end;
 
 procedure TFormProfile.FormShow(Sender: TObject);
 begin
-DM.ztblCurUser.First;//переходит на первую запись
-CurrentUser:=DM.ztblCurUser.FieldValues['user_id']; //получаем значение
+//DM.ztblCurUser.First;//переходит на первую запись
+//CurrentUser:=DM.ztblCurUser.FieldValues['user_id']; //получаем значение
 if QueryUs.Active then QueryUs.Close;
-QueryUs.ParamByName('curuser').Value:=CurrentUser;
+QueryUs.ParamByName('curuser').Value:=DM.CurrentUser;
 QueryUs.ExecSQL;
 QueryUs.Active:=True;
 end;

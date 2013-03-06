@@ -106,6 +106,7 @@ if DM.CurrentUser > 0 then
 begin
 QueryCurrentU.ParamByName('id').AsString := IntToStr(DM.CurrentUser);
 QueryCurrentU.ExecSQL;
+QueryCurrentU.Active :=true;
   NikEdit.Text:= VarToStr(QueryCurrentU.FieldValues['name']);
   end;
   TextEdit.Clear;

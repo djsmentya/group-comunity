@@ -29,7 +29,6 @@ type
     ztblRatingkurs: TStringField;
     ztblPractik: TZTable;
     dsPractik: TDataSource;
-    IniQuery: TZQuery;
     ztblPractikid: TIntegerField;
     ztblPractikkurs: TStringField;
     ztblPractikid_users: TFloatField;

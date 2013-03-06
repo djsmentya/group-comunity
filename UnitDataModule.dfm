@@ -16,6 +16,7 @@ object DM: TDM
     Port = 0
     Database = 'database'
     Protocol = 'sqlite-3'
+    LibraryLocation = 'sqlite3.dll'
     Left = 8
     Top = 8
   end
@@ -139,17 +140,6 @@ object DM: TDM
     DataSet = ztblPractik
     Left = 240
     Top = 160
-  end
-  object IniQuery: TZQuery
-    Connection = conDB
-    Active = True
-    SQL.Strings = (
-      
-        'INSERT INTO users VALUES(NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL' +
-        ',NULL,NULL,NULL,NULL,NULL,NULL,NULL)')
-    Params = <>
-    Left = 136
-    Top = 208
   end
   object ZtblDolgi: TZTable
     Connection = conDB

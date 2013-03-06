@@ -11,7 +11,8 @@ uses
   Unit1 in 'Unit1.pas' {DataModule1: TDataModule},
   UnitProfile in 'UnitProfile.pas' {FormProfile},
   UnitEdit in 'UnitEdit.pas' {FormEdit},
-  UnitChat in 'UnitChat.pas' {FormChat};
+  MainUnit in 'MainUnit.pas' {FormChat},
+  UnitDolgi in 'UnitDolgi.pas' {FormDolgi};
 
 {$R *.res}
 
@@ -27,5 +28,6 @@ begin
   Application.CreateForm(TFormProfile, FormProfile);
   Application.CreateForm(TFormEdit, FormEdit);
   Application.CreateForm(TFormChat, FormChat);
+  Application.CreateForm(TFormDolgi, FormDolgi);
   Application.Run;
 end.
