@@ -91,7 +91,7 @@ end;
 procedure TFormMain.FormShow(Sender: TObject);
 begin
 FormProfile.show;
-end
+end;
 procedure TFormMain.ToolButtonDolgiClick(Sender: TObject);
 begin
 FormDolgi.show;

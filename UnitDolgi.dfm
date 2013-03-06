@@ -1,11 +1,12 @@
 object FormDolgi: TFormDolgi
-  Left = 335
-  Top = 183
-  Width = 801
-  Height = 483
-  Align = alTop
+  Left = 413
+  Top = 302
+  Align = alClient
   AutoSize = True
+  BorderStyle = bsNone
   Caption = 'Dolgi'
+  ClientHeight = 353
+  ClientWidth = 785
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,10 +19,10 @@ object FormDolgi: TFormDolgi
   TextHeight = 13
   object LabelNzvTabl: TLabel
     Left = 280
-    Top = 24
-    Width = 168
+    Top = 0
+    Width = 114
     Height = 20
-    Caption = #209#239#232#241#238#234' '#237#229#243#241#239#229#226#224#254#249#232#245
+    Caption = #1047#1072#1076#1086#1083#1078#1077#1085#1086#1089#1090#1080
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -31,7 +32,7 @@ object FormDolgi: TFormDolgi
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 40
+    Top = 16
     Width = 753
     Height = 305
     Align = alCustom
@@ -46,7 +47,7 @@ object FormDolgi: TFormDolgi
   end
   object DBNavigator1: TDBNavigator
     Left = 240
-    Top = 352
+    Top = 328
     Width = 240
     Height = 25
     DataSource = DM.DsDolgi

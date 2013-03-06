@@ -1,8 +1,8 @@
 object DM: TDM
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 962
-  Top = 107
+  Left = 792
+  Top = 239
   Height = 307
   Width = 359
   object conDB: TZConnection
@@ -150,12 +150,12 @@ object DM: TDM
     Params = <>
     Left = 136
     Top = 208
-end
+  end
   object ZtblDolgi: TZTable
     Connection = conDB
     Active = True
     TableName = 'Dolgi'
-    Left = 280
+    Left = 288
     Top = 96
     object ZtblDolgiName: TStringField
       DisplayWidth = 25
@@ -169,7 +169,7 @@ end
     end
     object ZtblDolgiDolg: TBooleanField
       FieldName = 'Dolg'
-      DisplayValues = #229#241#242#252';'#205#229#242
+      DisplayValues = #1045#1089#1090#1100';'#1053#1077#1090
     end
     object ZtblDolgiid: TIntegerField
       FieldName = 'id'
@@ -183,7 +183,7 @@ end
   end
   object DsDolgi: TDataSource
     DataSet = ZtblDolgi
-    Left = 152
-    Top = 168
+    Left = 168
+    Top = 160
   end
 end
