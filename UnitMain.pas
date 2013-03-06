@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ToolWin, ComCtrls, Menus, ExtCtrls;
+  Dialogs, ToolWin, ComCtrls, Menus, ExtCtrls, ShellApi;
 
 type
   TFormMain = class(TForm)
@@ -23,11 +23,20 @@ type
     N1: TMenuItem;
     profile: TMenuItem;
     btnProfile: TToolButton;
+    N2: TMenuItem;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    GroupComunity1: TMenuItem;
+    N5: TMenuItem;
+    N6: TMenuItem;
     procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
     procedure zachetkaClick(Sender: TObject);
     procedure profileClick(Sender: TObject);
     procedure N1Click(Sender: TObject);
+    procedure N3Click(Sender: TObject);
+    procedure N6Click(Sender: TObject);
+    procedure GroupComunity1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,7 +51,7 @@ implementation
 uses
 
   UnitDataModule, Tray_7, UnitEv, Unit1doska,
-  UnitZachetka, UnitProfile, UnitEdit;
+  UnitZachetka, UnitProfile, UnitEdit, Unit2;
 
 {$R *.dfm}
 
@@ -70,6 +79,21 @@ procedure TFormMain.N1Click(Sender: TObject);
 begin
 FormEdit.ShowModal;
 
+end;
+
+procedure TFormMain.N3Click(Sender: TObject);
+begin
+FormMain.WindowState:= wsMinimized;
+end;
+
+procedure TFormMain.N6Click(Sender: TObject);
+begin
+about.show;
+end;
+
+procedure TFormMain.GroupComunity1Click(Sender: TObject);
+begin
+ShellExecute(handle, 'open', 'info.doc', '-2>err.txt', nil, SW_SHOW);
 end;
 
 end.

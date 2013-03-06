@@ -27,7 +27,7 @@ type
 
 var
   Tray: TTray;
-
+   TrayIcon: TIcon;
 implementation
 
 uses UnitMain;
@@ -45,6 +45,7 @@ procedure TTray.DefineIconInformation(Action:Integer; IC:TIcon);
 var
 notificData:TNotifyIconData;
 begin
+TrayIcon := Application.Icon;
 with notificData do
 begin
 cbSize:=SizeOf(NotificData);
@@ -52,7 +53,7 @@ Wnd:=Self.Handle;
 uID:=1;
 uFlags:=NIF_ICON or NIF_MESSAGE or NIF_TIP;
 uCallbackMessage:=WM_USER+1;
-hIcon:=icon.Handle;
+hIcon:=TrayIcon.Handle;
 szTip:='Программа';
 end;
 case action of
