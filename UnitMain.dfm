@@ -54,6 +54,13 @@ object FormMain: TFormMain
       ImageIndex = 1
       MenuItem = chat
     end
+    object ToolButtonDolgi: TToolButton
+      Left = 99
+      Top = 2
+      Caption = #199#224#228#238#235#230#237#238#241#242#232
+      MenuItem = Dolgi
+      OnClick = ToolButtonDolgiClick
+    end
   end
   object Panel: TPanel
     Left = 0
@@ -76,6 +83,9 @@ object FormMain: TFormMain
     end
     object edit: TMenuItem
       Caption = #1055#1088#1072#1074#1082#1072
+      object pref: TMenuItem
+        Caption = '?????????'
+      end
       object N1: TMenuItem
         Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100' '#1083#1080#1095#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
         OnClick = N1Click
@@ -102,6 +112,18 @@ object FormMain: TFormMain
         Caption = #1063#1072#1090
         ImageIndex = 1
         OnClick = chatClick
+      end
+      object zachetka: TMenuItem
+        Caption = '???????'
+        OnClick = zachetkaClick
+      end
+      object profile: TMenuItem
+        Caption = '??????? ????????????'
+        OnClick = profileClick
+      end
+      object Dolgi: TMenuItem
+        Caption = #199#224#228#238#235#230#237#238#241#242#232
+        OnClick = DolgiClick
       end
     end
   end

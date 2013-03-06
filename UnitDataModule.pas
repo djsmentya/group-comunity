@@ -36,6 +36,13 @@ type
     ztblPractikid_items: TFloatField;
     ztblPractikzachet: TStringField;
     procedure DataModuleCreate(Sender: TObject);
+    ZtblDolgi: TZTable;
+    DsDolgi: TDataSource;
+    ZtblDolgipredmet: TStringField;
+    ZtblDolgiDolg: TBooleanField;
+    ZtblDolgiName: TStringField;
+    ZtblDolgiid: TIntegerField;
+    ZtblDolgiuser_id: TFloatField;
   private
     { Private declarations }
     user_id: integer;

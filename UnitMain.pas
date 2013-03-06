@@ -26,6 +26,9 @@ type
     chat: TMenuItem;
     ToolBChat: TToolButton;
     ImageList1: TImageList;
+    Dolgi: TMenuItem;
+    ToolButtonDolgi: TToolButton;
+
     procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
     procedure zachetkaClick(Sender: TObject);
@@ -33,6 +36,8 @@ type
     procedure N1Click(Sender: TObject);
     procedure chatClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure ToolButtonDolgiClick(Sender: TObject);
+    procedure DolgiClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,7 +52,8 @@ implementation
 uses
 
   UnitDataModule, Tray_7, UnitEv, Unit1doska,
-  UnitZachetka, UnitProfile, UnitEdit, MainUnit;
+  UnitZachetka, UnitProfile, UnitEdit, MainUnit,UnitDolgi;
+
 
 {$R *.dfm}
 
@@ -85,6 +91,15 @@ end;
 procedure TFormMain.FormShow(Sender: TObject);
 begin
 FormProfile.show;
+end
+procedure TFormMain.ToolButtonDolgiClick(Sender: TObject);
+begin
+FormDolgi.show;
+end;
+
+procedure TFormMain.DolgiClick(Sender: TObject);
+begin
+FormDolgi.show;
 end;
 
 end.

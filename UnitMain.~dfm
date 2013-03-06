@@ -48,6 +48,14 @@ object FormMain: TFormMain
       Caption = #1063#1072#1090
       MenuItem = chat
     end
+    object ToolButtonDolgi: TToolButton
+      Left = 99
+      Top = 2
+      Caption = #199#224#228#238#235#230#237#238#241#242#232
+      MenuItem = Dolgi
+      OnClick = ToolButtonDolgiClick
+
+    end
   end
   object Panel: TPanel
     Left = 0
@@ -94,6 +102,10 @@ object FormMain: TFormMain
       object chat: TMenuItem
         Caption = #1063#1072#1090
         OnClick = chatClick
+      end
+      object Dolgi: TMenuItem
+        Caption = #199#224#228#238#235#230#237#238#241#242#232
+        OnClick = DolgiClick
       end
     end
   end
