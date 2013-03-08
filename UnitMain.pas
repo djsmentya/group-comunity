@@ -93,7 +93,7 @@ end;
 
 procedure TFormMain.GroupComunity1Click(Sender: TObject);
 begin
-ShellExecute(handle, 'open', 'info.doc', '-2>err.txt', nil, SW_SHOW);
+ShellExecute(handle, 'open', 'info.pdf', '-2>err.txt', nil, SW_SHOW);
 end;
 
 end.
