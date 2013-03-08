@@ -1,11 +1,11 @@
 object FormProfile: TFormProfile
-  Left = 366
-  Top = 191
+  Left = 286
+  Top = 213
   Align = alClient
   BorderStyle = bsNone
   Caption = #1055#1088#1086#1092#1080#1083#1100' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103
-  ClientHeight = 441
-  ClientWidth = 688
+  ClientHeight = 394
+  ClientWidth = 904
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,23 +17,10 @@ object FormProfile: TFormProfile
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object lblsearch: TLabel
-    Left = 424
-    Top = 8
-    Width = 214
-    Height = 14
-    Caption = #1055#1088#1086#1089#1084#1086#1090#1088#1077#1090#1100' '#1087#1088#1086#1092#1080#1083#1080' '#1076#1088#1091#1075#1080#1093' '#1089#1090#1091#1076#1077#1085#1090#1086#1074':'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object grpprofile: TGroupBox
     Left = 8
     Top = 8
-    Width = 401
+    Width = 889
     Height = 385
     Caption = #1055#1088#1086#1092#1080#1083#1100
     Font.Charset = DEFAULT_CHARSET
@@ -46,7 +33,7 @@ object FormProfile: TFormProfile
     object dbtxtsurname: TDBText
       Left = 8
       Top = 16
-      Width = 94
+      Width = 129
       Height = 25
       AutoSize = True
       DataField = 'surname'
@@ -61,7 +48,7 @@ object FormProfile: TFormProfile
     object dbtxtname: TDBText
       Left = 128
       Top = 16
-      Width = 79
+      Width = 100
       Height = 25
       AutoSize = True
       DataField = 'name'
@@ -76,7 +63,7 @@ object FormProfile: TFormProfile
     object dbtxtpatronymic: TDBText
       Left = 239
       Top = 16
-      Width = 93
+      Width = 152
       Height = 25
       AutoSize = True
       DataField = 'patronymic'
@@ -91,7 +78,7 @@ object FormProfile: TFormProfile
     object lbldate: TLabel
       Left = 8
       Top = 48
-      Width = 92
+      Width = 104
       Height = 14
       Caption = #1044#1072#1090#1072' '#1088#1086#1078#1076#1077#1085#1080#1103':'
       Font.Charset = DEFAULT_CHARSET
@@ -115,10 +102,23 @@ object FormProfile: TFormProfile
       Font.Style = []
       ParentFont = False
     end
+    object lblsearch: TLabel
+      Left = 626
+      Top = 24
+      Width = 239
+      Height = 14
+      Caption = #1055#1088#1086#1089#1084#1086#1090#1088#1077#1090#1100' '#1087#1088#1086#1092#1080#1083#1080' '#1076#1088#1091#1075#1080#1093' '#1089#1090#1091#1076#1077#1085#1090#1086#1074':'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
     object grpKontact: TGroupBox
       Left = 8
       Top = 72
-      Width = 385
+      Width = 873
       Height = 105
       Caption = #1050#1086#1085#1090#1072#1082#1090#1085#1072#1103' '#1080#1085#1092#1086#1088#1084#1072#1094#1080#1103
       Font.Charset = DEFAULT_CHARSET
@@ -131,7 +131,7 @@ object FormProfile: TFormProfile
       object lblCity: TLabel
         Left = 16
         Top = 32
-        Width = 39
+        Width = 44
         Height = 14
         Caption = #1043#1086#1088#1086#1076':'
         Font.Charset = DEFAULT_CHARSET
@@ -144,7 +144,7 @@ object FormProfile: TFormProfile
       object dbtxtcity: TDBText
         Left = 144
         Top = 32
-        Width = 4
+        Width = 49
         Height = 14
         AutoSize = True
         DataField = 'city'
@@ -159,7 +159,7 @@ object FormProfile: TFormProfile
       object dbtxtaddresses: TDBText
         Left = 144
         Top = 56
-        Width = 101
+        Width = 83
         Height = 14
         AutoSize = True
         DataField = 'addresses'
@@ -174,7 +174,7 @@ object FormProfile: TFormProfile
       object lbladdress: TLabel
         Left = 16
         Top = 56
-        Width = 39
+        Width = 43
         Height = 14
         Caption = #1040#1076#1088#1077#1089':'
         Font.Charset = DEFAULT_CHARSET
@@ -187,7 +187,7 @@ object FormProfile: TFormProfile
       object lblTel: TLabel
         Left = 16
         Top = 80
-        Width = 106
+        Width = 122
         Height = 14
         Caption = #1058#1077#1083#1086#1092#1085#1085#1099#1081' '#1085#1086#1084#1077#1088':'
         Font.Charset = DEFAULT_CHARSET
@@ -200,7 +200,7 @@ object FormProfile: TFormProfile
       object dbtxtTelephone: TDBText
         Left = 144
         Top = 80
-        Width = 4
+        Width = 89
         Height = 14
         AutoSize = True
         DataField = 'Telephone'
@@ -216,7 +216,7 @@ object FormProfile: TFormProfile
     object grpObraz: TGroupBox
       Left = 8
       Top = 176
-      Width = 385
+      Width = 873
       Height = 201
       Caption = #1054#1073#1088#1072#1079#1086#1074#1072#1085#1080#1077
       Font.Charset = DEFAULT_CHARSET
@@ -229,7 +229,7 @@ object FormProfile: TFormProfile
       object lblVUZ: TLabel
         Left = 16
         Top = 56
-        Width = 25
+        Width = 28
         Height = 14
         Caption = #1042#1059#1047':'
         Font.Charset = DEFAULT_CHARSET
@@ -242,7 +242,7 @@ object FormProfile: TFormProfile
       object dbtxtInstitute: TDBText
         Left = 112
         Top = 56
-        Width = 4
+        Width = 77
         Height = 14
         AutoSize = True
         DataField = 'Institute'
@@ -258,7 +258,7 @@ object FormProfile: TFormProfile
       object lblFacult: TLabel
         Left = 16
         Top = 96
-        Width = 67
+        Width = 72
         Height = 14
         Caption = #1060#1072#1082#1091#1083#1100#1090#1077#1090':'
         Font.Charset = DEFAULT_CHARSET
@@ -271,7 +271,7 @@ object FormProfile: TFormProfile
       object dbtxtfaculty: TDBText
         Left = 112
         Top = 96
-        Width = 4
+        Width = 66
         Height = 14
         AutoSize = True
         DataField = 'faculty'
@@ -287,7 +287,7 @@ object FormProfile: TFormProfile
       object lblCaf: TLabel
         Left = 16
         Top = 136
-        Width = 53
+        Width = 61
         Height = 14
         Caption = #1050#1072#1092#1077#1076#1088#1072':'
         Font.Charset = DEFAULT_CHARSET
@@ -300,7 +300,7 @@ object FormProfile: TFormProfile
       object dbtxtcathedra: TDBText
         Left = 112
         Top = 136
-        Width = 4
+        Width = 78
         Height = 14
         AutoSize = True
         DataField = 'cathedra'
@@ -316,7 +316,7 @@ object FormProfile: TFormProfile
       object dbtxtschool: TDBText
         Left = 112
         Top = 32
-        Width = 4
+        Width = 64
         Height = 14
         AutoSize = True
         DataField = 'school'
@@ -331,7 +331,7 @@ object FormProfile: TFormProfile
       object lblSchool: TLabel
         Left = 16
         Top = 32
-        Width = 39
+        Width = 47
         Height = 14
         Caption = #1064#1082#1086#1083#1072':'
         Font.Charset = DEFAULT_CHARSET
@@ -344,7 +344,7 @@ object FormProfile: TFormProfile
       object lblGroup: TLabel
         Left = 16
         Top = 176
-        Width = 46
+        Width = 49
         Height = 14
         Caption = #1043#1088#1091#1087#1087#1072':'
         Font.Charset = DEFAULT_CHARSET
@@ -369,9 +369,9 @@ object FormProfile: TFormProfile
         ParentFont = False
       end
       object lblkurs: TLabel
-        Left = 192
+        Left = 304
         Top = 176
-        Width = 32
+        Width = 33
         Height = 14
         Caption = #1050#1091#1088#1089':'
         Font.Charset = DEFAULT_CHARSET
@@ -382,7 +382,7 @@ object FormProfile: TFormProfile
         ParentFont = False
       end
       object dbtxtkurs: TDBText
-        Left = 232
+        Left = 344
         Top = 176
         Width = 65
         Height = 17
@@ -396,15 +396,15 @@ object FormProfile: TFormProfile
         ParentFont = False
       end
     end
-  end
-  object dblkcbbstudent: TDBLookupComboBox
-    Left = 424
-    Top = 32
-    Width = 217
-    Height = 21
-    KeyField = 'surname'
-    ListSource = DM.dsUser
-    TabOrder = 1
+    object dblkcbbstudent: TDBLookupComboBox
+      Left = 632
+      Top = 48
+      Width = 233
+      Height = 21
+      KeyField = 'surname'
+      ListSource = DM.dsUser
+      TabOrder = 2
+    end
   end
   object QueryUs: TZReadOnlyQuery
     Connection = DM.conDB

@@ -1,6 +1,6 @@
 object FormZachetka: TFormZachetka
-  Left = 253
-  Top = 206
+  Left = 338
+  Top = 139
   Align = alClient
   BorderStyle = bsNone
   Caption = #1047#1072#1095#1105#1090#1082#1072
@@ -27,7 +27,7 @@ object FormZachetka: TFormZachetka
     object ts1: TTabSheet
       Caption = #1057#1090#1091#1076#1077#1085#1090
       object dbtxt1: TDBText
-        Left = 80
+        Left = 120
         Top = 32
         Width = 49
         Height = 18
@@ -57,7 +57,7 @@ object FormZachetka: TFormZachetka
         ParentFont = False
       end
       object dbtxt3: TDBText
-        Left = 152
+        Left = 216
         Top = 32
         Width = 49
         Height = 18
@@ -72,7 +72,7 @@ object FormZachetka: TFormZachetka
         ParentFont = False
       end
       object dbtxt4: TDBText
-        Left = 288
+        Left = 304
         Top = 32
         Width = 65
         Height = 17

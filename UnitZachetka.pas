@@ -125,20 +125,20 @@ end;
 
 procedure TFormZachetka.FormShow(Sender: TObject);
 begin
-DM.ztblCurUser.First;//переходит на первую запись
-CurrentUser:=DM.ztblCurUser.FieldValues['user_id']; //получаем значение
+//DM.ztblCurUser.First;//переходит на первую запись
+//CurrentUser:=DM.ztblCurUser.FieldValues['user_id']; //получаем значение
 if QueryUser.Active then QueryUser.Close;
-QueryUser.ParamByName('curuser').Value:=CurrentUser;
+QueryUser.ParamByName('curuser').Value:=DM.CurrentUser;
 QueryUser.ExecSQL;
 QueryUser.Active:=True;
 
-if (dbtxt5.Caption = 'student') then
+{if (dbtxt5.Caption = 'student') then
 begin
  ts2.TabVisible:=False;
 end
 else
 ts2.TabVisible:=True;
-
+ }
 end;
 
 procedure TFormZachetka.btn1Click(Sender: TObject);

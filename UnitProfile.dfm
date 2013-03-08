@@ -33,7 +33,7 @@ object FormProfile: TFormProfile
     object dbtxtsurname: TDBText
       Left = 8
       Top = 16
-      Width = 129
+      Width = 94
       Height = 25
       AutoSize = True
       DataField = 'surname'
@@ -48,7 +48,7 @@ object FormProfile: TFormProfile
     object dbtxtname: TDBText
       Left = 128
       Top = 16
-      Width = 100
+      Width = 79
       Height = 25
       AutoSize = True
       DataField = 'name'
@@ -63,7 +63,7 @@ object FormProfile: TFormProfile
     object dbtxtpatronymic: TDBText
       Left = 239
       Top = 16
-      Width = 152
+      Width = 93
       Height = 25
       AutoSize = True
       DataField = 'patronymic'
@@ -144,7 +144,7 @@ object FormProfile: TFormProfile
       object dbtxtcity: TDBText
         Left = 144
         Top = 32
-        Width = 49
+        Width = 41
         Height = 14
         AutoSize = True
         DataField = 'city'
@@ -159,7 +159,7 @@ object FormProfile: TFormProfile
       object dbtxtaddresses: TDBText
         Left = 144
         Top = 56
-        Width = 83
+        Width = 101
         Height = 14
         AutoSize = True
         DataField = 'addresses'
@@ -200,7 +200,7 @@ object FormProfile: TFormProfile
       object dbtxtTelephone: TDBText
         Left = 144
         Top = 80
-        Width = 89
+        Width = 84
         Height = 14
         AutoSize = True
         DataField = 'Telephone'
@@ -242,7 +242,7 @@ object FormProfile: TFormProfile
       object dbtxtInstitute: TDBText
         Left = 112
         Top = 56
-        Width = 77
+        Width = 320
         Height = 14
         AutoSize = True
         DataField = 'Institute'
@@ -253,7 +253,6 @@ object FormProfile: TFormProfile
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        WordWrap = True
       end
       object lblFacult: TLabel
         Left = 16
@@ -271,7 +270,7 @@ object FormProfile: TFormProfile
       object dbtxtfaculty: TDBText
         Left = 112
         Top = 96
-        Width = 66
+        Width = 475
         Height = 14
         AutoSize = True
         DataField = 'faculty'
@@ -282,7 +281,6 @@ object FormProfile: TFormProfile
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        WordWrap = True
       end
       object lblCaf: TLabel
         Left = 16
@@ -300,7 +298,7 @@ object FormProfile: TFormProfile
       object dbtxtcathedra: TDBText
         Left = 112
         Top = 136
-        Width = 78
+        Width = 298
         Height = 14
         AutoSize = True
         DataField = 'cathedra'
@@ -311,12 +309,11 @@ object FormProfile: TFormProfile
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
-        WordWrap = True
       end
       object dbtxtschool: TDBText
         Left = 112
         Top = 32
-        Width = 64
+        Width = 80
         Height = 14
         AutoSize = True
         DataField = 'school'
