@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ToolWin, ComCtrls, Menus, ExtCtrls, DB, ZAbstractRODataset,
-  ZAbstractDataset, ZDataset, ImgList;
+  ZAbstractDataset, ZDataset, ImgList, ShellApi;
 
 type
   TFormMain = class(TForm)
@@ -30,6 +30,12 @@ type
     ToolButtonDolgi: TToolButton;
     schedule: TMenuItem;
 
+    N2: TMenuItem;
+    N3: TMenuItem;
+    N4: TMenuItem;
+    GroupComunity1: TMenuItem;
+    N5: TMenuItem;
+    N6: TMenuItem;
     procedure exitMenuClick(Sender: TObject);
     procedure doskaClick(Sender: TObject);
     procedure zachetkaClick(Sender: TObject);
@@ -40,6 +46,10 @@ type
     procedure ToolButtonDolgiClick(Sender: TObject);
     procedure DolgiClick(Sender: TObject);
     procedure scheduleClick(Sender: TObject);
+
+    procedure N3Click(Sender: TObject);
+    procedure N6Click(Sender: TObject);
+    procedure GroupComunity1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,7 +64,8 @@ implementation
 uses
 
   UnitDataModule, Tray_7, UnitEv, Unit1doska,
-  UnitZachetka, UnitProfile, UnitEdit, MainUnit,UnitDolgi, UnitSchedule;
+  UnitZachetka, UnitProfile, UnitEdit, MainUnit,
+  UnitDolgi, UnitSchedule, Unit2;
 
 
 {$R *.dfm}
@@ -107,7 +118,21 @@ end;
 procedure TFormMain.scheduleClick(Sender: TObject);
 begin
 FormSchedule.ShowModal;
+end;
 
+procedure TFormMain.N3Click(Sender: TObject);
+begin
+FormMain.WindowState:= wsMinimized;
+end;
+
+procedure TFormMain.N6Click(Sender: TObject);
+begin
+about.show;
+end;
+
+procedure TFormMain.GroupComunity1Click(Sender: TObject);
+begin
+ShellExecute(handle, 'open', 'info.pdf', '-2>err.txt', nil, SW_SHOW);
 end;
 
 end.

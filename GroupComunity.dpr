@@ -13,7 +13,8 @@ uses
   UnitEdit in 'UnitEdit.pas' {FormEdit},
   MainUnit in 'MainUnit.pas' {FormChat},
   UnitDolgi in 'UnitDolgi.pas' {FormDolgi},
-  UnitSchedule in 'UnitSchedule.pas' {FormSchedule};
+  UnitSchedule in 'UnitSchedule.pas' {FormSchedule}
+  Unit2 in 'Unit2.pas' {about};
 
 {$R *.res}
 
@@ -31,5 +32,6 @@ begin
   Application.CreateForm(TFormChat, FormChat);
   Application.CreateForm(TFormDolgi, FormDolgi);
   Application.CreateForm(TFormSchedule, FormSchedule);
+  Application.CreateForm(Tabout, about);
   Application.Run;
 end.

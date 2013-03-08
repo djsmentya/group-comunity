@@ -1,6 +1,6 @@
 object Tray: TTray
-  Left = 664
-  Top = 338
+  Left = 696
+  Top = 440
   Align = alClient
   BorderStyle = bsNone
   Caption = #1058#1088#1101#1081
